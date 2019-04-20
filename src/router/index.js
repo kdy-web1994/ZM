@@ -8,16 +8,6 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/HelloWorld',
-      name: 'HelloWorld',
-      component:()=>import(/* webpackChunkName: "HelloWorld" */ '@/views/HelloWorld')
-    },
-    {
-      path: '/Im',
-      name: 'Im',
-      component:()=>import(/* webpackChunkName: "Im" */ '@/views/Im')
-    },
-    {
       path: '/login',
       name: 'login',
       component:()=>import('@/page/login/login')
