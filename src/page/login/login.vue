@@ -88,6 +88,7 @@ input {
   background-color: #f6f6f6;
   position: relative;
   height: 100%;
+  text-align: center;
   font-size: 0.3rem;
 
   .loginhead {
