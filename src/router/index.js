@@ -25,6 +25,11 @@ let routes=[{
   name: 'forgotpassword',
   component:()=>import('@/page/login/forgotpassword')
 },
+{
+  path: '/my',
+  name: 'my',
+  component:()=>import('@/page/my/my')
+},
 ...product]
 
 Vue.use(Router)
