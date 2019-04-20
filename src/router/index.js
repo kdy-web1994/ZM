@@ -1,22 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/views/HelloWorld'
+import product from './product/product'
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/HelloWorld',
-      name: 'HelloWorld',
-      component:()=>import(/* webpackChunkName: "HelloWorld" */ '@/views/HelloWorld')
-    },
-    {
-      path: '/Im',
-      name: 'Im',
-      component:()=>import(/* webpackChunkName: "Im" */ '@/views/Im')
-    },
     {
       path: '/login',
       name: 'login',
@@ -41,7 +31,9 @@ export default new Router({
       path: '/my',
       name: 'my',
       component:()=>import('@/page/my/my')
-    }
-    
+    },
+
+    ...product
+
   ]
 })
