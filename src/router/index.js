@@ -30,6 +30,31 @@ let routes=[{
   name: 'my',
   component:()=>import('@/page/my/my')
 },
+{
+  path: '/aboutus',
+  name: 'aboutus',
+  component:()=>import('@/page/my/aboutus')
+},
+{
+  path: '/changepassword',
+  name: 'changepassword',
+  component:()=>import('@/page/my/changepassword')
+},
+{
+  path: '/collection',
+  name: 'collection',
+  component:()=>import('@/page/my/collection')
+},
+{
+  path: '/feedback',
+  name: 'feedback',
+  component:()=>import('@/page/my/feedback')
+},
+{
+  path: '/integral',
+  name: 'integral',
+  component:()=>import('@/page/my/integral')
+},
 ...product]
 
 Vue.use(Router)

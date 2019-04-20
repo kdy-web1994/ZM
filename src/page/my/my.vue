@@ -9,31 +9,35 @@
           <div class="serialnum">用户编号：<span>CN0000000</span></div>
           <div class="bottom">
               <div class="func">
-                  <div class="iconbox"></div>
-                  <p>扫码积分</p>
-                  <span>99999</span>
+                  <div class="funcbox" @click='$router.push({name:"integral"})'>
+                    <div class="iconbox"></div>
+                    <p>扫码积分</p>
+                    <span>99999</span>
+                  </div>
               </div>
               <div class="func">
-                  <div class="iconbox"></div>
-                  <p>我的收藏</p>
-                  <span>111</span>
+                  <div class="funcbox" @click='$router.push({name:"collection"})'>
+                    <div class="iconbox"></div>
+                    <p>我的收藏</p>
+                    <span>111</span>
+                  </div>
               </div>
           </div>
       </div>
       <div class="mybody">
-          <div class="item">
+          <div class="item" @click='$router.push({name:"changepassword"})'>
               <i class="left"></i>
-              <span class="cont">修改密码</span>
+              <span class="cont" >修改密码</span>
               <i class="right"></i>
           </div>
           <div class="center">
 
-               <div class="items">
+               <div class="items" @click='$router.push({name:"feedback"})'>
                     <i class="left"></i>
                     <span class="cont">意见反馈</span>
                     <i class="right"></i>
                 </div>
-                <div class="items">
+                <div class="items" @click='$router.push({name:"aboutus"})'>
                     <i class="left"></i>
                     <span class="cont">关于我们</span>
                     <i class="right"></i>
@@ -134,18 +138,22 @@ export default {
                 padding-top: 0.5rem;
                 width: 50%;
                 text-align: center;
-
-                .iconbox{
-                    width: 0.44rem;
-                    height: 0.38rem;
-                    background-color: #fff;
+                .funcbox{
+                    width: 1.2rem;
                     margin: 0 auto;
-                }
-                p{
-                    color: #fff;
-                }
-                span{
-                    color: #ffca9e;
+
+                    .iconbox{
+                        width: 0.44rem;
+                        height: 0.38rem;
+                        background-color: #fff;
+                        margin: 0 auto;
+                    }
+                    p{
+                        color: #fff;
+                    }
+                    span{
+                        color: #ffca9e;
+                    }
                 }
             }
         }
