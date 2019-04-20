@@ -20,10 +20,5 @@ const routes = requireComponent.keys().map(fileName => {
     }
 });
 console.log(routes)
-let routers=[{
-    path:'/product',
-    name:"Products",
-    redirect:routes[0].path,
-    children:[...routes]
-}];
-export default routers;
+
+export default routes;
