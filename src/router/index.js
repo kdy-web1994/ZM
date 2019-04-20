@@ -18,9 +18,25 @@ export default new Router({
       component:()=>import(/* webpackChunkName: "Im" */ '@/views/Im')
     },
     {
-      path: '/Login',
-      name: 'Login',
-      component:()=>import(/* webpackChunkName: "Im" */ '@/page/login/login')
+      path: '/login',
+      name: 'login',
+      component:()=>import('@/page/login/login')
+    },
+    {
+      path: '/useragreement',
+      name: 'useragreement',
+      component:()=>import('@/page/login/useragreement')
+    },
+    {
+      path: '/firstlogin',
+      name: 'firstlogin',
+      component:()=>import('@/page/login/firstlogin')
+    },
+    {
+      path: '/forgotpassword',
+      name: 'forgotpassword',
+      component:()=>import('@/page/login/forgotpassword')
     }
+    
   ]
 })

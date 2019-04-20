@@ -9,16 +9,16 @@
           <input class="ipt name" v-model="name" v-focus="iptfocus()" type="text" placeholder="用户编号">
         </div>
         <div class="inputbox">
-          <input class="ipt passwords" v-model="cipher" v-focus="iptfocus()" :type="isActive==false?'password':'text'" placeholder="密码">
+          <input class="ipt passwords" v-model="idcard" v-focus="iptfocus()" type="text" placeholder="身份证号码">
+        </div>
+        <div class="inputbox">
+          <input class="ipt passwords" v-model="cipher" v-focus="iptfocus()" :type="isActive==false?'password':'text'" placeholder="设置8位数字及字母新密码">
           <i class="eyes" :class="[{eyesopen: isActive}]" @click="openeyes()"></i>
         </div>
         <div class="btn" :class="[{btnbackground:isbtn}]">
             登陆
         </div>
-        <div class="functionbtn">
-            <a class="first" @click='$router.push({name:"firstlogin"})'>首次登陆</a>
-            <a class="forget" @click='$router.push({name:"forgotpassword"})'>忘记密码</a>
-        </div>
+        
       </div>
     </div>
     <div class="base">我已阅读并同意 <span class="agreement" @click='$router.push({name:"useragreement"})'>《用户协议》</span></div>
@@ -34,6 +34,7 @@ export default {
       isActive: false,
       isbtn:false,
       name: '',
+      idcard: '',
       cipher: '',
     };
   },
@@ -43,7 +44,7 @@ export default {
           this.isActive = !this.isActive;
       },
       iptfocus(){
-          if(this.name!=''&&this.cipher!=''){
+          if(this.name!=''&&this.cipher!=''&&this.idcard!=''){
               this.isbtn = true;
           }else{
               this.isbtn = false;
@@ -97,7 +98,7 @@ input {
   }
   .loginbody {
     width: 6.9rem;
-    height: 4.76rem;
+    height: 5.31rem;
     background-color: #fff;
     padding-top: 1.51rem;
     border-radius: 0.2rem;
@@ -178,20 +179,7 @@ input {
       .btnbackground{
           background: linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
       }
-      .functionbtn{
-          width: 6rem;
-          padding-top: 0.3rem;
-          margin: 0 auto;
-
-          .first{
-              float: left;
-              color: #ed6c00;
-          }
-          .forget{
-              float: right;
-              color: #999999;
-          }
-      }
+      
     }
   }
   .base{
