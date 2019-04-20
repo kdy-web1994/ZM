@@ -1,11 +1,13 @@
 <template>
     <div class="new">
-      new页面
+      <div></div>
     </div>
   </template>
   <script>
   export default {
-    
+     created(){
+       console.log(1)
+     }
   }
   </script>
   <style lang="scss" scoped>
