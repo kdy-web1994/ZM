@@ -6,13 +6,13 @@
       <div class="loginbox">
         <div class="inputbox">
             <span class="textlab">CN</span>
-          <input class="ipt name" v-model="name" v-focus="iptfocus()" type="text" placeholder="用户编号">
+          <input class="ipt name" v-model="name" @focus="iptfocus()" type="text" placeholder="用户编号">
         </div>
         <div class="inputbox">
-          <input class="ipt passwords" v-model="idcard" v-focus="iptfocus()" type="text" placeholder="身份证号码">
+          <input class="ipt passwords" v-model="idcard" @focus="iptfocus()" type="text" placeholder="身份证号码">
         </div>
         <div class="inputbox">
-          <input class="ipt passwords" v-model="cipher" v-focus="iptfocus()" :type="isActive==false?'password':'text'" placeholder="设置8位数字及字母新密码">
+          <input class="ipt passwords" v-model="cipher" @focus="iptfocus()" :type="isActive==false?'password':'text'" placeholder="设置8位数字及字母新密码">
           <i class="eyes" :class="[{eyesopen: isActive}]" @click="openeyes()"></i>
         </div>
         <div class="btn" :class="[{btnbackground:isbtn}]">

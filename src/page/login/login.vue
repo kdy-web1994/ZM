@@ -92,7 +92,7 @@ input {
   font-size: 0.3rem;
 
   .loginhead {
-    width: 7.5rem;
+    
     height: 2.8rem;
     background: linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
     background: -ms-linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
