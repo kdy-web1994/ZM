@@ -13,7 +13,6 @@ const routes = requireComponent.keys().map(fileName => {
         // 如果这个组件选项是通过 `export default` 导出的，那么就会优先使用 `.default`，否则回退到使用模块的根。
         componentConfig.default || componentConfig
     );
-    console.log(componentName.replace(/\//,'-'))
     return {
         path: '/product/'+componentName,
         name: componentName.replace(/\//,'-'),
