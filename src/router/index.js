@@ -36,6 +36,11 @@ export default new Router({
       path: '/forgotpassword',
       name: 'forgotpassword',
       component:()=>import('@/page/login/forgotpassword')
+    },
+    {
+      path: '/my',
+      name: 'my',
+      component:()=>import('@/page/my/my')
     }
     
   ]

@@ -87,13 +87,16 @@ input {
 .conten {
   background-color: #f6f6f6;
   position: relative;
-  height: 13.34rem;
+  height: 100%;
   font-size: 0.3rem;
 
   .loginhead {
     width: 7.5rem;
     height: 2.8rem;
     background: linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
+    background: -ms-linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
+    background: -webkit-linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
+    background: -moz-linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
   }
   .loginbody {
     width: 6.9rem;
@@ -177,6 +180,9 @@ input {
       }
       .btnbackground{
           background: linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
+          background: -ms-linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
+          background: -webkit-linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
+          background: -moz-linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
       }
       .functionbtn{
           width: 6rem;
