@@ -15,16 +15,16 @@ const routes = requireComponent.keys().map(fileName => {
     );
     console.log(componentName.replace(/\//,'-'))
     return {
-        path: '/'+componentName,
+        path: '/product/'+componentName,
         name: componentName.replace(/\//,'-'),
         component
     }
 });
-console.log()
+console.log(routes)
 let routers=[{
     path:'/product',
     name:"Products",
-    redirect:"/"+routes[0].name,
+    redirect:routes[0].path,
     children:[...routes]
 }];
 export default routers;
