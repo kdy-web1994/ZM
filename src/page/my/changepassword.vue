@@ -138,16 +138,16 @@ input {
   background: transparent;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #cccccc;
+    color:#cccccc;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #cccccc;
+   color:#cccccc;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #cccccc;
+   color:#cccccc;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #cccccc;
+   color:#cccccc;
 }
 .conten{
     background-color: #f6f6f6;
