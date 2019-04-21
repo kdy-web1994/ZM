@@ -60,5 +60,13 @@ let routes=[{
 Vue.use(Router)
 
 export default new Router({
-  routes
+  routes:[{
+    path: '/',
+			name: 'Main',
+			component: ()=>import('@/page/Main'),
+			// children:[{
+
+      // }]
+  },
+ ...routes]
 })
