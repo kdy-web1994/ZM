@@ -2,7 +2,7 @@
 module.exports = {
     vueTemplate: compoenntName => {
       return `<template>
-    <div id="${compoenntName}">
+    <div class="${compoenntName}">
       ${compoenntName}组件
     </div>
   </template>

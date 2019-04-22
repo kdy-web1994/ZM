@@ -1,0 +1,50 @@
+.Alert {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    
+  }
+
+  .Alert .AlertBox {
+    width: 5.4rem;
+    border-radius: 0.2rem;
+    background: #fff;
+
+    
+
+    
+  }
+
+  .Alert .AlertBox .top {
+    min-height: 1.48rem;
+    border-bottom: 1px solid #d6d7d9;
+    padding: 0.45rem 0.35rem 0.35rem 0.35rem;
+    box-sizing: border-box;
+  }
+  .Alert .AlertBox .top .content{
+    font-size: 0.26rem;
+  }
+
+  .Alert .AlertBox .bottom {
+    height: 0.88rem;
+    display: flex;
+    
+   
+  }
+
+  .Alert .AlertBox .bottom .alert {
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 0.88rem;
+    font-size: 0.34rem;
+    color: rgba(237, 108, 0, 1);
+  }
