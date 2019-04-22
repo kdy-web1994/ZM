@@ -1,6 +1,5 @@
 <template>
   <div class="conten">
-  <Header/>
     <div class="loginhead"></div>
     <div class="loginbody">
       <div class="logo">logo</div>
