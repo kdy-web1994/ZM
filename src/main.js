@@ -21,10 +21,14 @@ import(/* webpackChunkName: "Toast" */ './plugins/Toast/toast').then((_)=>{  //�
   Vue.use(_)
 })
 
-import './plugins/Alert/Alert.css'; //自己写的插件css样式
+
+import './plugins/Alert/Alert.css'; //alert 组件
 import(/* webpackChunkName: "Alert" */ './plugins/Alert/Alert').then((_)=>{  //引入插件
   Vue.use(_)
 })
+
+
+
 
 
 Vue.prototype.$Api = Api;
@@ -36,7 +40,8 @@ import 'babel-polyfill'
 import Es6Promise from 'es6-promise'
 require('es6-promise').polyfill()
 Es6Promise.polyfill()
-console.log(router)
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
