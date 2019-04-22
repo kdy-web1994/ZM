@@ -5,12 +5,17 @@ var AlertVM = null,    //存储toast vm
 
 	Alert.install = function(Vue) {
 
-	Vue.prototype.$alert = function(obj) {//方法挂载在vue内
+	Vue.prototype.$alert = function(msg,alertText) {//方法挂载在vue内
          var nowType;
-		var tmp = '<div class="Alert" v-show="visible"><div class="top" ><img src="'+require('../../assets/common_icon_ok@2x.png')+'" v-if="type==1" /><img src="'+require('../../assets/common_btn_close3@2x.png')+'" v-if="type==2" /></div><p >{{message}}</p></div>'
+		var tmp = '<div class="Alert" v-show="visible"><div class="AlertBox"><div class="top"><div class="content">{{message}}</div></div><div class="bottom"><div class="alert"  @click="close">{{alertText}}</div> </div></div></div>'
         
          
 		if(showAlert) {//之前toast还未消失
+			if(AlertVM){
+				AlertVM.message = msg                  //改变toast 文字
+				AlertVM.alertText=alertText
+				AlertVM.visible=showAlert;
+      }
 			return;
 
 		}
@@ -19,9 +24,17 @@ var AlertVM = null,    //存储toast vm
 			var instance = Vue.extend({
 				data: function() {
 					return {
-						...obj
+						visible: showAlert,
+						alertText,
+						message: msg
 					}
 				},
+				methods:{
+					close(){
+						console.log(1)
+					  this.visible=false
+					}
+				  },
 				template: tmp
 			});
 
@@ -34,9 +47,7 @@ var AlertVM = null,    //存储toast vm
 		AlertVM.visible = showToast = true;     //toast 显示
 		AlertVM.message = msg                  //改变toast 文字
         AlertVM.type = nowType   
-		setTimeout(function() {
-			AlertVM.visible = showToast = false;          //toast 消失
-		}, 1500)
+		
 
 	}
 

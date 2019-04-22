@@ -1,14 +1,14 @@
 <template>
-  <div class="Pop">
+  <div class="Pop" v-if="contentText">
     <div class="PopBox">
       <div class="top">
         <div class="title" v-if="title">{{title}}</div>
         <div class="content">{{contentText}}</div>
       </div>
       <div class="bottom">
-        <div class="alert" v-if="type==='alert'" @click="alert">{{alertText}}</div>
-        <div class="cancel" v-if="type!=='alert'" :style="[{'color':cancelColor}]" @click="cancel">{{cancelText}}</div>
-        <div class="comfirm" v-if="type!=='alert'" @click="comfirm">{{comfirmText}}</div>
+        <div class="alert" v-if="type==='alert'" @click.stop="alert">{{alertText}}</div>
+        <div class="cancel" v-if="type!=='alert'" :style="[{'color':cancelColor}]" @click.stop="cancel">{{cancelText}}</div>
+        <div class="comfirm" v-if="type!=='alert'" @click.stop="comfirm">{{comfirmText}}</div>
       </div>
     </div>
   </div>
@@ -61,27 +61,37 @@ export default {
       this.$emit("cancel")
     },
     comfirm(){
+      console.log("11")
       this.$emit("comfirm")
+    },
+    mask(){
+      console.log("mask")
     }
   }
 };
 </script>
   <style lang="scss" scoped>
 .Pop {
-  width: 100%;
-  height: 100vh;
+ 
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
+  z-index: 2000;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .PopBox {
     width: 5.4rem;
     border-radius: 0.2rem;
     background: #fff;
-
+    z-index: 99999;
+   position: relative;
+    
     .top {
       min-height: 1.48rem;
       border-bottom: 1px solid #d6d7d9;
@@ -99,6 +109,7 @@ export default {
     }
 
     .bottom {
+      width: 100%;
       height: 0.88rem;
       display: flex;
       .alert {
@@ -111,7 +122,7 @@ export default {
         color: rgba(237, 108, 0, 1);
       }
       .cancel {
-        flex: 1;
+       width: 50%;
         text-align: center;
         line-height: 0.88rem;
         font-size: 0.34rem;
@@ -120,7 +131,7 @@ export default {
         border-right: 1px solid #d6d7d9;
       }
       .comfirm {
-        flex: 1;
+        width: 50%;
         text-align: center;
         line-height: 0.88rem;
         font-size: 0.34rem;

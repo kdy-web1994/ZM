@@ -21,6 +21,11 @@ import(/* webpackChunkName: "Toast" */ './plugins/Toast/toast').then((_)=>{  //�
   Vue.use(_)
 })
 
+import './plugins/Alert/Alert.css'; //自己写的插件css样式
+import(/* webpackChunkName: "Alert" */ './plugins/Alert/Alert').then((_)=>{  //引入插件
+  Vue.use(_)
+})
+
 
 Vue.prototype.$Api = Api;
 
