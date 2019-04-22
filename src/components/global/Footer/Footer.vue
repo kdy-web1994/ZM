@@ -9,8 +9,10 @@
   }
   </script>
   <style lang="scss" scoped>
-  .Footer {
-  
+  #Footer {
+    position: fixed;
+    width: 100%;
+    
   }
   </style>
   

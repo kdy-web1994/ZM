@@ -22,32 +22,32 @@ export default {
       type: String,
       required: false
     },
-    type: {
+    type: { //弹框类型
       type: String,
       required: true,
       default: "alert"
     },
-    contentText: {
+    contentText: { //内容
       type: String,
       required: true,
       default: ""
     },
-    alertText: {
+    alertText: {  //alert 按钮文本
       type: String,
       required: false,
       default: "确定"
     },
-    cancelText: {
+    cancelText: { //删除 按钮 文本
       type: String,
       required: false,
       default: "取消"
     },
-    cancelColor: {
+    cancelColor: {//删除 字体颜色
       type: String,
       required: false,
       default: "#333333"
     },
-    comfirmText: {
+    comfirmText: {//确认按钮 文本
       type: String,
       required: false,
       default: "确认"
