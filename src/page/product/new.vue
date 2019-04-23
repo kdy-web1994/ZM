@@ -3,6 +3,7 @@
       <div>
              ji
       </div>
+      <Footer />
       <!-- <Pop  
       title="温馨提示" 
       type="comfirm" 
@@ -13,7 +14,7 @@
       v-if="show"
       /> -->
 
-      <Success />
+      <!-- <Success /> -->
     </div>
   </template>
   <script>
