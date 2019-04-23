@@ -1,6 +1,6 @@
 <template>
     <div id="Footer">
-      <div class="item" v-for="(item,index) in arr" :key="index" @click="go(index)">
+      <div  v-for="(item,index) in arr" :key="index" @click="go(index)" :class="['item',activeIndex===index?'activeBox':'']">
           <div>
             <div :class="['icon',item.icon,activeIndex===index?item.activeIcon:'' ]"></div>
                  <p :class="[activeIndex===index?'active':'']">{{item.text}}</p>
@@ -118,6 +118,10 @@
         .active{
           color: #ED6C00;
         }
+
+    }
+    .activeBox{
+      background:rgba(243,150,0,0.2);
 
     }
   }

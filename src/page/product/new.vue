@@ -3,7 +3,7 @@
       <div>
              ji
       </div>
-      <!-- <Footer /> -->
+     <Footer /> 
       <!-- <Pop  
       title="温馨提示" 
       type="comfirm" 
