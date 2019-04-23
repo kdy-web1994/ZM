@@ -14,7 +14,7 @@
       v-if="show"
       /> -->
 
-      <Success /> 
+  
     </div>
   </template>
   <script>
@@ -23,6 +23,7 @@
      created(){
        this.show=true
       //  console.log(1)
+      this.$toast("清理成功")
         // this.$alert("亲爱的家人，您好！本次查询结果仅作为借力使用，不作为店铺审核依据，谢谢！","登录") 
      },
      data(){
