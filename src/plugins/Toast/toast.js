@@ -7,7 +7,7 @@ Toast.install = function(Vue) {
 
 	Vue.prototype.$toast = function(msg,type) {//方法挂载在vue内
          var nowType;
-		var tmp = '<div class="Success" v-show="visible"><div class="top" ><img src="'+require('../../assets/common_icon_ok@2x.png')+'" v-if="type==1" /><img src="'+require('../../assets/common_btn_close3@2x.png')+'" v-if="type==2" /></div><p >{{message}}</p></div>'
+		var tmp = '<div class="Success" v-show="visible"><div class="top" ><img src="'+require('../../assets/common_icon_ok@2x.png')+'" v-if="type===1" /><img src="'+require('../../assets/common_btn_close3@2x.png')+'" v-if="type===2" /></div><p >{{message}}</p></div>'
          if(type=='success'){
          	nowType=1
          	
