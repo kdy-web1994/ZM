@@ -37,7 +37,7 @@ Toast.install = function(Vue) {
 		toastVM.message = msg                  //改变toast 文字
         toastVM.type = nowType   
 		setTimeout(function() {
-			// toastVM.visible = showToast = false;          //toast 消失
+			 toastVM.visible = showToast = false;          //toast 消失
 		}, 1500)
 
 	}

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import product from './product/product'
-
+import service from './service/service'
 
 
 
@@ -68,5 +68,7 @@ export default new Router({
 
       // }]
   },
- ...routes]
+ ...routes,
+ ...service
+]
 })
