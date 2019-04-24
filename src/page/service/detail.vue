@@ -72,7 +72,6 @@ export default {
   background: #f6f6f6;
   min-height: 100vh;
   padding: 0.2rem 0.3rem;
-
   box-sizing: border-box;
   .personal {
     margin-top: 0.3rem;
@@ -183,7 +182,8 @@ export default {
     margin-top: 0.3rem;
     width: 6.9rem;
     background: rgba(255, 255, 255, 1);
-    height: 6.35rem;
+    padding: 0.1rem 0.3rem 0.4rem;
+    box-sizing: border-box;
     border-radius: 0.1rem;
     padding: 0.1rem 0.3rem 0.4rem;
     box-sizing: border-box;
