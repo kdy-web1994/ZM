@@ -19,12 +19,12 @@
       </div>
       <div class="line"></div>
     </div>
-    <div class="more">查看全部</div>
+    <div class="more" v-if="!More">查看全部</div>
   </div>
 </template>
   <script>
 export default {
-  props: ["address", "phone", "isOpen"],
+  props: ["address", "phone", "isOpen","More"],
   methods: {}
 };
 </script>
