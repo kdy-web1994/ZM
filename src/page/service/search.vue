@@ -55,8 +55,7 @@ export default {
     position: relative;
     z-index: 10;
     min-height: 100vh;
-    padding: 0 0.3rem;
-    padding-top: 0.2rem;
+    padding: 0.2rem 0.3rem;
     box-sizing: border-box;
 
     .contentBox {

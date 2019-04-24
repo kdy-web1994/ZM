@@ -102,6 +102,35 @@ export default {
           no-repeat;
         background-size: 100% 100%;
       }
+      .orderNum{
+        background: url("../../../assets/service/service_iconorder__number_orange@3x.png")
+          no-repeat;
+        background-size: 100% 100%;
+      }
+     .number{
+       background: url("../../../assets/service/service_icon_number_orange@3x.png")
+          no-repeat;
+        background-size: 100% 100%;
+       
+     }
+      .attribute{
+         background: url("../../../assets/service/service_icon_attribute_orange@3x.png")
+          no-repeat;
+        background-size: 100% 100%;
+      }
+      .audit{
+        background: url("../../../assets/service/service_icon_audit_orange@3x.png") no-repeat;
+        background-size: 100% 100%;
+      }
+      .date{
+         background: url("../../../assets/service/service_icon_date_orange@3x.png") no-repeat;
+        background-size: 100% 100%;
+      }
+      .order{
+         background: url("../../../assets/service/service_icon_order_orange@3x.png") no-repeat;
+        background-size: 100% 100%;
+      }
+
     }
     .bottom {
       margin-top: 0rem;
