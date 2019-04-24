@@ -5,10 +5,11 @@ import router from './router'      //router
 import FastClick from 'fastclick'
 import store from './store/store'  //vuex
 import Api from './Api/api.js'
- import init from './components/index.js'
- init()
+import init from './components/index.js'
+init()
 
-
+import { Tab, Tabs } from 'vant';
+Vue.use(Tab).use(Tabs);
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {
