@@ -8,8 +8,11 @@ import Api from './Api/api.js'
 import init from './components/index.js'
 init()
 
-import { Tab, Tabs } from 'vant';
+import { Tab, Tabs, Badge, BadgeGroup, Row, Col } from 'vant';
 Vue.use(Tab).use(Tabs);
+Vue.use(Badge);
+Vue.use(BadgeGroup);
+Vue.use(Row).use(Col);
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {

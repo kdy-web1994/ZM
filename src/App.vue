@@ -26,4 +26,23 @@ body{
 html,body,#app{
  height: 100%;
 }
+.van-hairline--top-bottom::after {
+    border-width: 0 0;
+}
+.van-badge{
+  background-color: #fff;
+  color: #333333;
+}
+.van-badge--select{
+  background-color: #fff8f2;
+  color: #ed6c00;
+  border-color: #fff8f2;
+}
+.van-tabs__content{
+  height: 100% !important;
+}
+.van-tab__pane{
+  height: 100% !important;
+}
+
 </style>
