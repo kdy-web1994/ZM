@@ -55,8 +55,8 @@
   #Footer {
     position: fixed;
     width: 100%;
+    max-width: 700px;
     bottom: 0;
-    left: 0;
     height: 0.98rem;
     display: flex;
     .item{
