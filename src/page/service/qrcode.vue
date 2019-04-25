@@ -23,7 +23,7 @@
 
          </div>
       </div>
-      <div :class="['bottom',isEnough===2?'showBottom':'hideBottom']">
+      <div :class="['bottom',isEnough===2?'showBottom':'hideBottom']" v-show="isFull!==0">
         <p>2. 请问您实收款式及数量是否与出库单实发款式数量一致？</p>
         <div class="radioBox">
           <div class="item" @click="changeBottom(1)">
@@ -51,7 +51,7 @@
         <Item icon="phone" title="联系电话" :isRequire="true" placeholder="请输入" type="input" inputType="tel" v-model="phone"/>
 
        </div>
-       <div class="btn">确认</div>
+       <div :class="['btn',isEnough===0?'disable':'']">确认</div>
     </div>
     <div class="bg"></div>
   </div>
@@ -149,6 +149,9 @@ export default {
       font-size: 0.3rem;
       line-height: 0.7rem;
       margin-top: 0.8rem;
+    }
+    .disable{
+      background: #CCCCCC;
     }
     .msg{
        transition: 0.5s;
