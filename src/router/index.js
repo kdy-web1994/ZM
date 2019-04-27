@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import product from './product/product'
 import service from './service/service'
+import home from './homerouter/homerouter'
 
 
 
@@ -72,6 +73,7 @@ export default new Router({
     },
     ...routes,
     ...product,
-    ...service
+    ...service,
+    ...home
   ]
 })  
