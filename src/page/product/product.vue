@@ -17,7 +17,16 @@
                   <van-badge title="男士系列"/>
                 </van-badge-group>
               </van-col>
-              <van-col span="16" class="goodsright">span: 8</van-col>
+              <van-col span="16" class="goodsright">
+                <div class="productarea" @click="$router.push({name:'productdetails'})">
+                  <ul>
+                    <li class="imgoli">
+
+                    </li>
+                    <li class="name">商品</li>
+                  </ul>
+                </div>
+              </van-col>
             </van-row>
             
           </div>
@@ -98,7 +107,7 @@ input {
         background-color: #fff;
         border-radius: 0.3rem;
         font-size: 0.25rem;
-        background-image: url(./../../assets/search.png);
+        background-image: url("~assets/search.png");
         background-size: 0.26rem 0.25rem;
         background-repeat: no-repeat;
         background-position: 0.29rem 0.17rem;
@@ -122,7 +131,7 @@ input {
           left: 0;
           right: 0;
           margin: auto;
-          background-image: url(./../../assets/productbackground.png);
+          background-image: url("~assets/productbackground.png");
           background-size: 100% 100%;
           background-repeat: no-repeat;
         }
@@ -135,12 +144,42 @@ input {
             height: 100%;
 
             .goodsleft{
+              width: 1.9rem;
               height: 100%;
               background-color: #fff;
             }
             .goodsright{
+              padding: 0 0.16rem 0 0.1rem;
+              width: 5.6rem;
               height: 100%;
               background-color: #fff8f2;
+              overflow-x: hidden;
+              overflow-y: scroll;
+
+              .productarea{
+                margin: 0.06rem 0 0 0.06rem;
+                width: 2.6rem;
+                height: 2.6rem;
+                float: left;
+                background-image: url(/static/zmimg/product/product_bg@2x.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+
+                .imgoli{
+                  width: 2.4rem;
+                  height: 1.9rem;
+                  background-color: #ccc;
+                  margin: 0.08rem auto;
+                }
+                .name{
+                  font-size: 0.16rem;
+                  color: #999999;
+                }
+              }
+
+            }
+            .goodsright::-webkit-scrollbar {
+                display: none;
             }
 
           }
