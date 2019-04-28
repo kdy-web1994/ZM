@@ -19,8 +19,12 @@
         </div>
            <p style="margin-top:0.5rem">为保障您的权益，请您将包裹破损处的外包装蛇皮袋 、纸箱拍照上传，如有产品破损，请将破损的产品图一并上传，感谢您的配合！</p>
          <div class="imgBox">
-
-
+           <div class="item">
+             <div class="del"></div>
+           </div>
+            <div class="item add">
+              <div class="icon"></div>
+            </div>
          </div>
       </div>
       <div :class="['bottom',isEnough===2?'showBottom':'hideBottom']" v-show="isFull!==0">
@@ -167,6 +171,47 @@ export default {
       overflow: hidden;
       padding: 0.5rem 0.3rem;
       box-sizing: border-box;
+      .imgBox{
+        display: flex;
+        margin-top: 0.55rem;
+        align-items: center;
+        .item{
+          margin-right: 0.18rem;
+          width:1.44rem;
+height:1.44rem;
+border-radius:0.1rem;
+position: relative;
+.del{
+  position: absolute;
+  right: -0.07rem;
+  top: -0.15rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius:50%; 
+  background: url('../../assets/service_btn_close@3x.png') no-repeat;
+  background-size:100% 100%; 
+}
+        }
+        .item:last-child{
+          margin-right: 0;
+        }
+        .add{
+             border:2px dashed rgba(238,238,238,1);
+             position: relative;
+             .icon{
+               width: 0.66rem;
+               height: 0.66rem;
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               bottom: 0;
+               margin: auto;
+               background: url('../../assets/add.png') no-repeat;
+               background-size:100% 100%; 
+             }
+        }
+      }
     }
     .showTop {
       height: 6.11rem;
