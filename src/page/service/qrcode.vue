@@ -57,7 +57,9 @@
        </div>
        <div :class="['btn',isEnough===0?'disable':'']">确认</div>
     </div>
-    <div class="bg"></div>
+    <div class="bg">
+        <div class="icon"></div>
+    </div>
   </div>
 </template>
   <script>
@@ -308,9 +310,16 @@ position: relative;
     top: 0;
     left: 0;
     z-index: 0;
-    background: url("../../../static/image/service_bg_order@3x.png") no-repeat;
-    background-size: 100% auto;
-    background-position: bottom;
+    .icon{
+      width: 6rem;
+      height: 4.18rem;
+      position: absolute;
+      bottom: 0.4rem;
+      left: 0.8rem;
+       background: url("../../../static/image/service_bg_order@3x.png") no-repeat;
+       background-size:100% 100%; 
+    }
+  
   }
 }
 </style>

@@ -1,6 +1,9 @@
 <template>
     <div class="orderResult">
       <div class="content"></div>
+      <div class="bg">
+        <div class="icon"></div>
+      </div>
     </div>
   </template>
   <script>
@@ -29,9 +32,15 @@ width: 100%;
     top: 0;
     left: 0;
     z-index: 0;
-    background: url("../../../static/image/serviceBg.png") no-repeat;
-    background-size: 100% auto;
-    background-position: bottom;
+    .icon{
+      width: 5.9rem;
+      height: 5.57rem;
+      position: absolute;
+      bottom: 0.7rem;
+      left: 0.8rem;
+       background: url("../../assets/Order.png") no-repeat;
+       background-size:100% 100%; 
+    }
   }
   }
   </style>

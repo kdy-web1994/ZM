@@ -1,6 +1,8 @@
 <template>
     <div class="inputNum">
-    <div class="bg"></div>
+    <div class="bg">
+        <div class="icon"></div>
+    </div>
     <div class="content">
       <div class="contentBox">
         <Item icon="orderNum" title="物流单号" :isRequire="false" placeholder="请输入" type="input"/>
@@ -64,9 +66,16 @@
     top: 0;
     left: 0;
     z-index: 0;
-    background: url("../../../static/image/service_bg_order@3x.png") no-repeat;
-    background-size: 100% auto;
-    background-position: bottom;
+    .icon{
+      width: 6rem;
+      height: 4.18rem;
+      position: absolute;
+      bottom: 0.4rem;
+      left: 0.8rem;
+       background: url("../../../static/image/service_bg_order@3x.png") no-repeat;
+       background-size:100% 100%; 
+    }
+  
   }
   }
   </style>
