@@ -65,7 +65,14 @@ let newRouter=new Router({
       path: '/',
       name: 'Main',
       component: () => import('@/page/Main'),
-      children: [{
+      redirect:'home',
+      children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: () => import('@/page/main/home')
+        },
+        {
         path: '/service',
         name: 'service',
         component: () => import('@/page/main/service')

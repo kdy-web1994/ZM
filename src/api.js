@@ -150,8 +150,8 @@ function axiosApi(url, option, method = 'POST', stopLogin = false, cancelToken,i
 							if(localStorage.getItem('zm_app')==1) {
 								call.invokeLogin('') 
 							} else {
-								if(router.history.current.name!='newsdetail')
-									router.push({name: 'login'})
+								// if(router.history.current.name!='newsdetail')
+								// 	router.push({name: 'login'})
 							}
 						}
 					}

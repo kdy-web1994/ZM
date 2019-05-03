@@ -92,26 +92,35 @@ export default {
    	height: 100%;
    }
   .banner .swiper-container .swiper-pagination-bullets {
-    /* bottom: .8rem; */
+     bottom: .1rem; 
   }
-
+ .swiper-pagination{
+   text-align: right;
+   padding-right: 0.2rem;
+   box-sizing: border-box;
+ }
   .banner .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet {
-    width: 0.6rem;
-    height: .05rem;
-    border-radius: 0;
-    background: rgba(255,255,255,0.4);
-    opacity: 1;
+   width:0.08rem;
+height:0.08rem;
+background:rgba(237,108,0,1);
+opacity:0.5;
+border-radius:50%;
+ margin: 0;
+margin-right: 0.1rem;
   }
-
+.banner .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet:last-child{
+   margin: 0;
+}
   .banner .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet-active {
-    width: .6rem;
-    height: .05rem;
-    border-radius: 0;
-    background: #FADC56;
+    width:0.1rem;
+height:0.1rem;
+opacity:1;
+background:rgba(237,108,0,1);
+border-radius:50%;
   }
 
   .banner .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 0;
+   
 
   }
 </style>
