@@ -2,7 +2,7 @@
   <div class="conten">
     <div class="loginhead"></div>
     <div class="loginbody">
-      <div class="logo">logo</div>
+      <div class="logo"></div>
       <div class="loginbox">
         <div class="inputbox">
             <span class="textlab">CN</span>
@@ -112,6 +112,10 @@ input {
       height: 1.8rem;
       line-height: 1.8rem;
       background-color: #fff;
+      background-image: url(/static/zmimg/login/login_logo@2x.png);
+      background-size: 1.18rem 0.74rem;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
       border-radius: 50%;
       box-shadow: #fcf4ed 0 0.03rem 0.02rem 0.03rem;
       position: absolute;
@@ -157,14 +161,16 @@ input {
               display: block;
               width: 0.37rem;
               height: 0.22rem;
-              background-color: #cccccc;
+              background-image: url(/static/zmimg/login/login_icon_eye_off@2x.png);
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
               border-radius: 0.3rem;
               position: absolute;
               right: 0.5rem;
               bottom: 0.3rem;
           }
           .eyesopen{
-              background-color: #999999;
+              background-image: url(/static/zmimg/login/login_icon_eye_on@2x.png);
           }
       }
       .btn{
