@@ -5,8 +5,49 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import { Dialog } from 'vant'
 export default {
-  name: 'App'
+  name: 'App',
+  created(){
+       this.getSession()
+    this.getUserDetails()
+  },
+  methods:{
+    // 当前h5 session获取
+    getSession(){
+      if(localStorage.getItem('zm_app')==1 || this.$call.inApp())   // app
+        return
+      if(localStorage.getItem('session'))
+        return
+      let deviceToken=this.$base.randomString(32)
+      this.$Api.getSession(deviceToken).then((res)=>{
+        console.log('我是session接口')
+      })
+    },
+    // 当前h5 session是否已掉登
+    getUserDetails(){
+      if(localStorage.getItem('zm_app')==1 || this.$call.inApp())   // app
+        return
+      if (!localStorage.getItem('session')){
+        setTimeout(()=>{
+          this.getUserDetails()
+        },50)
+        return
+      }
+      this.$Api.UserDetails(0).then(res=>{
+        if(res.q.s==0) {
+          this.getPowerInfo()
+        }
+      })
+    },
+    // 更新权限
+    getPowerInfo() {
+      if(localStorage.getItem('zm_app')==1 || this.$call.inApp())   // app
+        return
+      this.$Api.getPowerInfo().then(res=>{  })
+    }
+  }
 }
 </script>
 

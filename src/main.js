@@ -4,7 +4,6 @@ import Vue from 'vue'
 import router from './router'      //router
 import FastClick from 'fastclick'
 import store from './store/store'  //vuex
-import Api from './Api/api.js'
 import init from './components/index.js'
 init()
 
@@ -32,10 +31,16 @@ import(/* webpackChunkName: "Alert" */ './plugins/Alert/Alert').then((_)=>{  //å
 })
 
 
+import base from '@/assets/js/base.js'
+Vue.prototype.$base = base
 
+import Api from '@/api'
+import call from '@/callApp.js'
+import axios from 'axios'
+Vue.prototype.$axios = axios
+Vue.prototype.$Api = Api
+Vue.prototype.$call = call
 
-
-Vue.prototype.$Api = Api;
 
 
 Vue.config.productionTip = false

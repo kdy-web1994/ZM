@@ -60,7 +60,7 @@ let routes = [{
 
 Vue.use(Router)
 
-export default new Router({
+let newRouter=new Router({
   routes: [{
       path: '/',
       name: 'Main',
@@ -75,5 +75,52 @@ export default new Router({
     ...product,
     ...service,
     ...home
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+  //     if (from.meta.keepAlive) {
+  // 　　  from.meta.savedPosition = document.documentElement.scrollTop || document.body.scrollTop
+  //     }
+      return { x: 0, y: to.meta.savedPosition ||0}
+   }
+  }
 })  
+
+
+newRouter.beforeEach((to, from, next) => {
+  console.log('to:'+to.path , 'from:'+from.path)
+  !function callback () {
+    // 没有session不能跳转
+    let session=localStorage.getItem('session') || to.query.s
+    if (!session) {
+      setTimeout(callback,50)
+      return
+    }
+    // 整理带code的url
+    let url=location.href,
+      j_index=url.indexOf('#'),
+      w0_index=url.lastIndexOf('?',j_index)
+    let str='';
+    if(w0_index>=0) {
+      str=url.slice(w0_index+1,url[j_index-1]==='/' ? j_index-1 : j_index)
+      url=url.slice(0,w0_index)+url.slice(url[j_index-1]==='/' ? j_index-1 : j_index)
+      if(url.indexOf('?',j_index)>=0) {
+        url=url+str
+      } else {
+        url=url+'?'+str
+      }
+      location.replace(url)
+      return
+    }
+    next()
+  }()
+})
+
+
+
+
+
+
+export default newRouter

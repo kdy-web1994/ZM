@@ -1,0 +1,48 @@
+{
+    "slots": [
+        {
+          "flex": 1,
+          "values": [
+            "广东省",
+            "2015-02",
+            "2015-03",
+            "2015-04",
+            "2015-05",
+            "2015-06"
+          ],
+          "className": "slot1",
+          "textAlign": "right"
+        },
+        {
+          "divider": true,
+          "content": "",
+          "className": "slot2"
+        },
+        {
+          "flex": 1,
+          "values": [
+            "广州市",
+            "佛山市",
+            "2015-03",
+            "2015-04",
+            "2015-05",
+            "2015-06"
+          ],
+          "className": "slot3",
+          "textAlign": "center"
+        },
+        {
+          "flex": 1,
+          "values": [
+            "禅城区",
+            "南海区",
+            "2015-03",
+            "2015-04",
+            "2015-05",
+            "2015-06"
+          ],
+          "className": "slot4",
+          "textAlign": "left"
+        }
+      ]
+}

@@ -1,6 +1,6 @@
 <template>
-  <div class="conten">
-    
+  <div class="content">
+           <swiperBox :swiperList="items" :canJump="true"></swiperBox>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.conten{
+.content{
     background-color: #f6f6f6;
     position: relative;
     height: 100%;
