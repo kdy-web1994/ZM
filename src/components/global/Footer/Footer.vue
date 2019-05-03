@@ -59,6 +59,8 @@
     bottom: 0;
     height: 0.98rem;
     display: flex;
+    background: #fff;
+    border-top:1px solid #eee; 
     .item{
         flex: 1;
         height: 100%;
