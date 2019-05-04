@@ -7,13 +7,12 @@ import store from './store/store'  //vuex
 import init from './components/index.js'
 init()
 
-import { Tab, Tabs, Badge, BadgeGroup, Row, Col, Loading, Toast   } from 'vant';
+import { Tab, Tabs, Badge, BadgeGroup, Row, Col, Loading } from 'vant';
 Vue.use(Tab).use(Tabs);
 Vue.use(Badge);
 Vue.use(BadgeGroup);
 Vue.use(Row).use(Col);
 Vue.use(Loading);
-Vue.use(Toast);
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {

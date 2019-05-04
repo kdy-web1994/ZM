@@ -26,7 +26,8 @@
 </template>
 
 <script>
-import md5 from "blueimp-md5"
+import md5 from "blueimp-md5";
+import { Toast } from 'vant';
 export default {
   data() {
     return {
@@ -44,7 +45,7 @@ export default {
         this.isActive = !this.isActive;
       },
       iptinput(){//btn按钮切换
-        if(this.name!=''&&this.cipher!=''){
+        if(this.names!=''&&this.cipher!=''){
             this.isbtn = true;
         }else{
             this.isbtn = false;
@@ -72,7 +73,7 @@ export default {
           this.getPowerInfo()
           this.getUpdateDeviceUser(q.user.id)
         } else {
-          this.$toast(q.d);
+          Toast(q.d);
         }
       })
     },
@@ -84,7 +85,7 @@ export default {
     getPowerInfo() {
       this.$Api.getPowerInfo().then(res=>{
         if(res.q.s==0) {
-          this.$toast('登录成功');
+          Toast.success('登录成功');
             setTimeout(() => { this.$router.go(-1) }, 200)
         }
       })
@@ -138,12 +139,10 @@ input {
   font-size: 0.3rem;
 
   .loginhead {
-    
     height: 2.8rem;
-    background: linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
-    background: -ms-linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
-    background: -webkit-linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
-    background: -moz-linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
+    background-image: url(/static/zmimg/login/login_bg@2x.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
   .loginbody {
     width: 6.9rem;
@@ -232,10 +231,9 @@ input {
           background-color: #cccccc;
       }
       .btnbackground{
-          background: linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
-          background: -ms-linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
-          background: -webkit-linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
-          background: -moz-linear-gradient(to right bottom, #f18a00, #f39700, #ee7000);
+          background-image: url(/static/zmimg/login/login_bg_btn@2x.png);
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
       }
       .functionbtn{
           width: 6rem;
