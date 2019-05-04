@@ -46,8 +46,5 @@ export default {
       padding: 0 0.2rem;
     }
 }
-p{
-  margin: 0;
-}
 </style>
 

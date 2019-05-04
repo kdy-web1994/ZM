@@ -25,10 +25,12 @@
       我已阅读并同意
       <span class="agreement" @click="$router.push({name:'useragreement'})">《用户协议》</span>
     </div>
+    <Guide /> 
   </div>
 </template>
 
 <script>
+
 import md5 from "blueimp-md5";
 import { Toast } from 'vant';
 export default {
