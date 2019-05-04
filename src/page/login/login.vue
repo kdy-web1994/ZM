@@ -6,13 +6,13 @@
       <div class="loginbox">
         <div class="inputbox">
             <span class="textlab">CN</span>
-          <input class="ipt name" v-model="name" @input="iptinput()" type="text" placeholder="用户编号">
+          <input class="ipt name" v-model="names" @input="iptinput()" type="text" placeholder="用户编号">
         </div>
         <div class="inputbox">
           <input class="ipt passwords" v-model="cipher" @input="iptinput()" :type="isActive==false?'password':'text'" placeholder="密码">
           <i class="eyes" :class="[{eyesopen: isActive}]" @click="openeyes()"></i>
         </div>
-        <div class="btn" :class="[{btnbackground:isbtn}]">
+        <div class="btn" :class="[{btnbackground:isbtn}]" @click="login()">
             登陆
         </div>
         <div class="functionbtn">
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import md5 from "blueimp-md5"
 export default {
   data() {
     return {
@@ -33,28 +34,73 @@ export default {
       visible: false,
       isActive: false,
       isbtn:false,
-      name: '',
+      names: '',
       cipher: '',
     };
   },
   mounted() {},
   methods: {
       openeyes(){//密码是否可见切换
-          this.isActive = !this.isActive;
+        this.isActive = !this.isActive;
       },
       iptinput(){//btn按钮切换
-          if(this.name!=''&&this.cipher!=''){
-              this.isbtn = true;
-          }else{
-              this.isbtn = false;
-          }
-      }
+        if(this.name!=''&&this.cipher!=''){
+            this.isbtn = true;
+        }else{
+            this.isbtn = false;
+        }
+      },
+      login(){//登陆
+        if(this.isbtn!=false){
+          let uid = 'CN'+this.names
+          let password = md5(this.cipher)
+          this.$Api.UserLogin(uid,password).then(res=>{
+            let q=res.q
+            if(q.s==0){
+              this.loadUserDetails() // 更新设备用户  // 更新用户信息
+            }
+          }).finally((c)=>{
+            
+          })
+        }
+      },
+      // 更新用户信息
+    loadUserDetails(){
+      this.$Api.UserDetails(0).then(res=>{
+        let q=res.q
+        if(q.s==0){
+          this.getPowerInfo()
+          this.getUpdateDeviceUser(q.user.id)
+        } else {
+          this.$toast(q.d);
+        }
+      })
+    },
+    // 更新设备用户
+    getUpdateDeviceUser(userid) {
+      this.$Api.UpdateDeviceUser(userid).then(res=>{ })
+    },
+    // 更新权限
+    getPowerInfo() {
+      this.$Api.getPowerInfo().then(res=>{
+        if(res.q.s==0) {
+          this.$toast('登录成功');
+            setTimeout(() => { this.$router.go(-1) }, 200)
+        }
+      })
+    },
 
-  }
+  },
 };
 </script>
 
 <style lang='scss' scoped>
+.demo-loading {
+  .van-loading {
+    display: inline-block;
+    margin: 5px 0 5px 20px;
+  }
+}
 input {
   outline: none;
   background: transparent;
