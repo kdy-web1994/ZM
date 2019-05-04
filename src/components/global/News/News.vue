@@ -1,11 +1,18 @@
 <template>
-    <div class="News">
+    <div class="News" @click="go">
         <div class="number">12</div>
     </div>
   </template>
   <script>
   export default {
-    name: 'News'
+    name: 'News',
+    methods:{
+      go(){
+        this.$router.push({
+          path: '/home/message'
+        })
+      }
+    }
   }
   </script>
   <style lang="scss" scoped>

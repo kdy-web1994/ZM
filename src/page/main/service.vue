@@ -1,6 +1,9 @@
 <template>
   <div class="service">
-     <div class="swiper"></div>
+     <div class="swiperBox">
+      <swiperBox :swiperList="swList" :canJump="true"></swiperBox>
+    </div>
+
      <div class="title">
          <div class="icon"></div>
          <div class="text">常用功能</div>
@@ -20,6 +23,7 @@
 export default {
   data(){
     return {
+         swList:[],
         itemArr:[
             {
                 bg:"rgba(255,249,249,1)",
@@ -58,9 +62,42 @@ export default {
         ]   
     } 
   },
- 
-  methods:{
+  created(){
+    this.getSwiper()
+  },
+  mounted() {},
+  methods: {
+    getSwiper() {
+     this.$Api.getAdList(1).then(res=>{
+        // console.log(res)
+        let q=res.q
+        if(q.s==0){
+          q.ads = this.$base.pinImgPrefix(q.ads,'imagePath')
+          this.swList=q.ads
+          this.$nextTick(() => {
+              this.initSwiper()
 
+            })
+        }
+      })
+    },
+    initSwiper() {
+      this.swiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        observer: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+        speed: 500,
+        // autoplayDisableOnInteraction: false
+      })
+    }
   }
 };
 </script>
@@ -68,8 +105,9 @@ export default {
  .service{
      min-height: 100vh;
      background: #F4F4F4;
-     .swiper{
-         height: 3rem;
+     .swiperBox{
+       position: relative;
+       height: 3rem;
      }
      .title{
          height: 1rem;
