@@ -124,9 +124,9 @@ function axiosApi(url, option, method = 'POST', stopLogin = false, cancelToken,i
 				url,
 				cancelToken
 			}, option)
-		var toast099 = Toast.loading({ message:'加载中', loadingType:'spinner',duration:0,mask:true })
+		// var toast099 = Toast.loading({ message:'加载中', loadingType:'spinner',duration:0,mask:true })
 		axios(obj).then((response) => {
-			toast099.clear()
+			// toast099.clear()
       if(response.data.q) {
         if(response.data.q.s != '0') {
 					let error = checkErr(response.data.q.s)

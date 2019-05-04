@@ -3,6 +3,27 @@
     <div class="swiperBox">
       <swiperBox :swiperList="swList" :canJump="true"></swiperBox>
     </div>
+      <div class="tabBar">
+        <div  :class="['item',activeIndex===0?'active':'']" @click="change(0)">
+          <div class="text">新闻
+            <div class="new">99+</div>
+          </div>
+        </div>
+        <div :class="['item',activeIndex===1?'active':'']" @click="change(1)">
+          <div class="text">公告
+            <div class="new">99+</div>
+          </div>
+        </div>
+        <div class="line" :style="[{'left':activeIndex===1?'50%':'0'}]"></div>
+      </div>
+      
+      <div class="imgBox">
+          <img src="../../../static/home_img_beauty_news_2.png" alt="">
+          <div class="mask">2018美体内衣上海发布会</div>
+      </div>
+       
+      
+
 
     <News />
   </div>
@@ -12,14 +33,21 @@
 export default {
   data() {
     return {
-      swList:[]
-    };
+      swList:[],
+      activeIndex:0
+    }
   },
   created(){
     this.getSwiper()
+
   },
-  mounted() {},
+  mounted() {
+
+  },
   methods: {
+    change(index){
+      this.activeIndex=index
+    },
     getSwiper() {
      this.$Api.getAdList(1).then(res=>{
         // console.log(res)
@@ -57,13 +85,85 @@ export default {
 
 <style lang='scss' scoped>
 .content {
-  background-color: #f6f6f6;
+  background-color: #fff;
   position: relative;
   height: 100%;
   font-size: 0.3rem;
+     .imgBox{
+       
+       width: 7.1rem;
+       height: 2.84rem;
+       margin: auto;
+       margin-top: 0.3rem;
+       margin-bottom: 0.3rem;
+       position: relative;
+       img{
+         width: 100%;
+         height: 100%;
+       }
+       .mask{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 0.56rem;
+          background: rgba(0,0,0,0.4);
+          font-size: 0.3rem;
+          color: #fff;
+          line-height: 0.56rem;
+          text-indent: 0.2rem;
+       }
+     }
+
      .swiperBox{
        position: relative;
        height: 3rem;
+       
+       
+     }
+     .tabBar{
+       height: 0.88rem;
+       box-sizing:border-box;
+       border-bottom: 1px solid #EDEDED;
+       background: #fff; 
+       display: flex;
+       position: relative;
+       .item{
+        width: 50%;
+        font-size: 0.3rem;
+        color: #999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .text{
+          
+          .new{
+            color: #fff;
+            font-size: 0.36rem;
+            transform: scale(0.5);
+            padding:0.01rem 0.1rem;
+            background: #FF2525;
+            border-radius:0.25rem;
+            text-align: center;
+            position: absolute;
+            top: 0.06rem;
+            right: 0.95rem;
+          }
+        }
+        
+       }
+       .active{
+           color: #ED6C00;
+       }
+       .line{
+         height: 2px;
+         width: 50%;
+         background: #ED6C00;
+         position: absolute;
+         bottom: 0;
+         transition: 0.5s;
+         left: 0;
+       }
      }
   h3,
   p {

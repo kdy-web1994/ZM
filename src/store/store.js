@@ -9,7 +9,8 @@ const store = new Vuex.Store({
 		Shop:Shop
 	},
 	state: {
-       avatar:""
+			 avatar:"",
+			 user:{}
 	},
 	getters: {
 		getAvatar:state=>{
@@ -19,7 +20,10 @@ const store = new Vuex.Store({
 	mutations: {
     changeAvatar(state,avatar){
       state.avatar = avatar;
-    },
+		},
+		changeUser(state,user={}){
+        state.user={...user}
+		}
 	},
 	actions: {
      commitAvatar({
