@@ -2,7 +2,7 @@ const Home={
 	state:{
 	},
 	mutations:{
-
+        
 	},
 	actions:{
 

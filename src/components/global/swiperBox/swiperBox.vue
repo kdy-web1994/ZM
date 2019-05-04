@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="banner">
+     
       <div class="swiper-container">
+        
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="item in swiperList" :key="item.imagePath"  @click="jump(item.actionType,item.id)">
         	<img :src="item.imagePath"/>
@@ -77,6 +79,18 @@ export default {
 	left: 0;
 	z-index: 1;
 }
+
+.banner .titleBox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,0.3);
+  z-index: 20;
+}
+
+
  .banner .swiper-container {
     width: 100%;
     height: 100%;
@@ -92,6 +106,7 @@ export default {
    	height: 100%;
    }
   .banner .swiper-container .swiper-pagination-bullets {
+    z-index: 999;
      bottom: .1rem; 
   }
  .swiper-pagination{

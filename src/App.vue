@@ -37,6 +37,8 @@ export default {
       }
       this.$Api.UserDetails(0).then(res=>{
         if(res.q.s==0) {
+          console.log(res)
+          this.$store.commit("changeUser",res.q.user)
           this.getPowerInfo()
         }
       })
