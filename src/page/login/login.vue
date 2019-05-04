@@ -6,10 +6,10 @@
       <div class="loginbox">
         <div class="inputbox">
             <span class="textlab">CN</span>
-          <input class="ipt name" v-model="name" @focus="iptfocus()" type="text" placeholder="用户编号">
+          <input class="ipt name" v-model="name" @input="iptinput()" type="text" placeholder="用户编号">
         </div>
         <div class="inputbox">
-          <input class="ipt passwords" v-model="cipher" @focus="iptfocus()" :type="isActive==false?'password':'text'" placeholder="密码">
+          <input class="ipt passwords" v-model="cipher" @input="iptinput()" :type="isActive==false?'password':'text'" placeholder="密码">
           <i class="eyes" :class="[{eyesopen: isActive}]" @click="openeyes()"></i>
         </div>
         <div class="btn" :class="[{btnbackground:isbtn}]">
@@ -39,10 +39,10 @@ export default {
   },
   mounted() {},
   methods: {
-      openeyes(){
+      openeyes(){//密码是否可见切换
           this.isActive = !this.isActive;
       },
-      iptfocus(){
+      iptinput(){//btn按钮切换
           if(this.name!=''&&this.cipher!=''){
               this.isbtn = true;
           }else{
