@@ -6,16 +6,19 @@
       <div class="loginbox">
         <div class="inputbox">
             <span class="textlab">CN</span>
-          <input class="ipt name" v-model="name" @focus="iptfocus()" type="text" placeholder="用户编号">
+          <input class="ipt name" v-model="namesid" @input="iptinput()" type="text" placeholder="用户编号" @blur="UserRoleQuery()">
+        </div>
+        <div v-if='role==2' class="inputbox">
+          <input class="ipt passwords" v-model="idcard" @input="iptinput()" type="text" placeholder="身份证号码" >
+        </div>
+        <div v-if='role==1' class="inputbox">
+          <input class="ipt passwords" v-model="names" @input="iptinput()" type="text" placeholder="姓名" >
         </div>
         <div class="inputbox">
-          <input class="ipt passwords" v-model="idcard" @focus="iptfocus()" type="text" placeholder="身份证号码">
-        </div>
-        <div class="inputbox">
-          <input class="ipt passwords" v-model="cipher" @focus="iptfocus()" :type="isActive==false?'password':'text'" placeholder="设置8位数字及字母新密码">
+          <input class="ipt passwords" v-model="cipher" @input="iptinput()" :type="isActive==false?'password':'text'" placeholder="设置8位数字及字母新密码">
           <i class="eyes" :class="[{eyesopen: isActive}]" @click="openeyes()"></i>
         </div>
-        <div class="btn" :class="[{btnbackground:isbtn}]">
+        <div class="btn" :class="[{btnbackground:isbtn}]" @click="forgotpassword()">
             确认
         </div>
         
@@ -26,6 +29,8 @@
 </template>
 
 <script>
+import md5 from "blueimp-md5";
+import { Toast } from 'vant';
 export default {
   data() {
     return {
@@ -33,23 +38,87 @@ export default {
       visible: false,
       isActive: false,
       isbtn:false,
-      name: '',
-      idcard: '',
-      cipher: '',
+      namesid: '',//编号
+      names: '',//姓名
+      idcard: '',//身份证
+      cipher: '',//密码
+      role: 2, //默认是会员
     };
   },
   mounted() {},
   methods: {
-      openeyes(){
+      openeyes(){//密码是否可见
           this.isActive = !this.isActive;
       },
-      iptfocus(){
-          if(this.name!=''&&this.cipher!=''&&this.idcard!=''){
+      iptinput(){//btn状态操作
+          if(this.role==1){
+            this.idcard='';
+          }else if(this.role==2){
+            this.names='';
+          }
+          if(this.namesid!=''&&this.cipher!=''&&(this.idcard!=''||this.names!='')){
               this.isbtn = true;
           }else{
               this.isbtn = false;
           }
+      },
+      forgotpassword(){//修改密码
+        if(this.isbtn!=false){
+          if(!this.regFn())
+          return
+          console.log(1)
+          let a=3,
+          user = {
+            id:'CN'+this.namesid,
+            password:md5(this.cipher)
+          }
+          if(this.role==1)
+            user.name=this.names
+          if(this.role==2)
+            user.idCard=this.idcard
+          this.$Api.getUserPasswordUpdate(a,user).then(res=>{
+            // console.log(res)
+            let q=res.q
+            if(q.s==0){
+              Toast.success('重置密码成功')
+              setTimeout(() => {
+                this.$router.go(-1)
+              }, 1200)
+            }
+          })
+        }
+      },
+     
+    regFn (roleType=this.role){// 验证
+      let [personid,password]=[
+        this.idcard,
+        this.cipher
+      ]
+      if(roleType==2&&personid.length!=15&&personid.length!=18){
+        Toast('身份证输入有误');
+        return false
       }
+      if(!(/^(?![^A-Za-z]+$)(?![^0-9]+$)[\x21-x7e]{8,16}$/.test(password))){
+        Toast('新密码为8-16为字母、数字组合');
+        return false
+      }
+      return true;
+    },
+   
+    UserRoleQuery(){ // 查询当前编号角色
+      this.role=2
+      let uid='CN'+this.namesid
+      if(!uid || !uid.length)   // 非登录才检查
+        return
+      this.$Api.getUserRoleQuery(uid).then(res=>{
+        console.log(res)
+        let q=res.q
+        if(q.s==0){
+          this.role=q.role;
+        }
+        this.iptinput();
+      })
+    },
 
   }
 };
