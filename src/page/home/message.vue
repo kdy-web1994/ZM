@@ -99,9 +99,21 @@ export default {
             if (this.pa >= Math.ceil(q.total / this.li)) this.all = true;
             setTimeout(()=>{
             this.List.push(...q.massages);
-            
-          
-          
+             let obj={
+               title:"11",
+               content:"11",
+               time:"1111"
+             }
+          this.List.push(obj)
+           this.List.push(obj)
+            this.List.push(obj)
+             this.List.push(obj)
+              this.List.push(obj)
+               this.List.push(obj)
+                this.List.push(obj)
+                 this.List.push(obj)
+
+                  this.List.push(obj)
            this.loading = false;
             },700)
           

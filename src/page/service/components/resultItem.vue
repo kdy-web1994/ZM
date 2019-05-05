@@ -10,14 +10,14 @@
         </div>
         <div class="right">一键导航</div>
       </div>
-      <div class="line"></div>
+      <boxLine />
     </div>
     <div class="bottom item">
       <div class="content">
         <div class="icon"></div>
         <span>{{phone}}</span>
       </div>
-      <div class="line"></div>
+      <boxLine />
     </div>
     <div class="more" v-if="!More">查看全部</div>
   </div>
@@ -70,16 +70,7 @@ export default {
       display: flex;
       align-items: center;
     }
-    .line {
-      width: 100%;
-      height: 0.04rem;
-      background: rgba(238, 238, 238, 1);
-      opacity: 0.4;
-      border-radius: 2px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+   
   }
   .top {
     .content {

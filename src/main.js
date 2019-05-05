@@ -44,7 +44,7 @@ Vue.prototype.$call = call
 
 
 
-import 'muse-ui/dist/muse-ui.css';
+ import 'muse-ui/dist/muse-ui.css';
 
 import {LoadMore} from 'muse-ui';
 Vue.use(LoadMore);

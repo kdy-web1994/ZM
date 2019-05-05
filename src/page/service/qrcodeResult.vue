@@ -1,6 +1,6 @@
 <template>
     <div class="qrcodeResult">
-      qrcodeResult页面
+       
     </div>
   </template>
   <script>

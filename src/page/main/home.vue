@@ -1,5 +1,18 @@
 <template>
   <div class="content">
+    <div class="homeHeader">
+        <div class="left">
+          <div class="num">12</div>
+          <div class="icon"></div>
+        </div>
+        <div class="input">
+          <div class="icon"></div>
+          <input type="text" placeholder="输入关键字搜索">
+        </div>
+        <div class="right">
+           <div class="icon"></div>
+        </div>
+    </div>
     <div class="swiperBox">
       <swiperBox :swiperList="swList" :canJump="true"></swiperBox>
     </div>
@@ -20,7 +33,14 @@
       <div class="imgBox">
           <img src="../../../static/home_img_beauty_news_2.png" alt="">
           <div class="mask">2018美体内衣上海发布会</div>
+          <listLine />
       </div>
+       
+       <div class="contentBox">
+            
+            <listItem />
+       </div>
+      
        
       
 
@@ -89,21 +109,113 @@ export default {
   position: relative;
   height: 100%;
   font-size: 0.3rem;
+  padding-top: 0.88rem;
+     .homeHeader{
+        display: flex;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        height: 0.88rem;
+        background: url('../../../static/zmimg/common/common_bg_nav@3x.png') no-repeat;
+        background-size:100% 100%; 
+        align-items: center;
+        .left{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: .95rem;
+          height: 100%;
+          position: relative;
+             .icon{
+              width: .44rem;
+              height: .44rem;
+              background: url("../../assets/common_icon_news@3x.png") no-repeat;
+              background-size:100% 100%; 
+              
+             }
+             .num{
+               background: #FF2525;
+               color: #fff;
+               font-size: 0.32rem;
+               border-radius:.2rem;
+               transform: scale(.5) translateY(-50%);
+               position: absolute;
+               right: -0.12rem;
+               padding:0rem 0.12rem; 
+               top: 0.1rem;
+             }
+        }
+        .input{
+          width: 5.57rem;
+          height: 0.56rem;
+          background:rgba(255,255,255,.2);
+          border-radius:.28rem;
+          display: flex;
+          align-items: center;
+          .icon{
+              width: .23rem;
+              height: .23rem;
+              background: url("../../assets/common_icon_search@3x.png") no-repeat;
+              background-size:100% 100%; 
+              margin-left: .25rem;
+              margin-right: .16rem;
+          }
+          input{
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 4.97rem;
+            height: 100%;
+            color: #fff;
+          }
+          input::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: #fff;
+      }
+      input:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #fff;
+      }
+      input::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #fff;
+      }
+      input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #fff;
+      }
+        }
+        .right{
+           display: flex;
+          align-items: center;
+          justify-content: center;
+          width: .98rem;
+           .icon{
+              width: .44rem;
+              height: .44rem;
+              background: url("../../assets/common_icon_phone@3x.png") no-repeat;
+              background-size:100% 100%; 
+               position: relative;
+             }
+        }
+     }
      .imgBox{
        
        width: 7.1rem;
-       height: 2.84rem;
+       height: 3.14rem;
        margin: auto;
        margin-top: 0.3rem;
-       margin-bottom: 0.3rem;
+      box-sizing: border-box;
        position: relative;
+       padding-bottom:0.3rem; 
        img{
          width: 100%;
-         height: 100%;
+         height: 2.84rem;
        }
        .mask{
           position: absolute;
-          bottom: 0;
+          bottom: 0.3rem;
           width: 100%;
           height: 0.56rem;
           background: rgba(0,0,0,0.4);
@@ -113,7 +225,11 @@ export default {
           text-indent: 0.2rem;
        }
      }
-
+     .contentBox{
+       width: 7.1rem;
+       margin: auto;
+       position: relative;
+     }
      .swiperBox{
        position: relative;
        height: 3rem;

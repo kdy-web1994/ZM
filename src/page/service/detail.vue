@@ -19,7 +19,7 @@
             <div>所属系统发展委：系统发展委</div>
           </div>
         </div>
-        <div class="line"></div>
+        <boxLine />
       </div>
       <div class="bottom">
         <div class="title">
@@ -31,7 +31,7 @@
         <div class="item">开业日期：2018-01-01</div>
         <div class="item">新增时间：2017-12-06</div>
         <div class="item">关闭日期：2018-06-22</div>
-        <div class="line"></div>
+         <boxLine />
       </div>
     </div>
     <div class="boss">
@@ -42,7 +42,7 @@
         </div>
         <div class="item">姓名：王晓霞</div>
         <div class="item">联系方式：13989890622</div>
-        <div class="line"></div>
+         <boxLine />
       </div>
       <div class="bottom">
         <div class="title">
@@ -55,7 +55,7 @@
         <div class="item">更变类型：更变类型</div>
         <div class="item">更变日期：2017-12-06</div>
          <div class="item">备注：备注备注备注备注备注备注</div>
-        <div class="line"></div>
+         <boxLine />
       </div>
     </div>
   </div>
@@ -136,16 +136,7 @@ export default {
         }
       }
 
-      .line {
-        width: 100%;
-        height: 0.04rem;
-        background: rgba(238, 238, 238, 1);
-        opacity: 0.4;
-        border-radius: 2px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
+      
     }
 
     .bottom {
@@ -168,16 +159,7 @@ export default {
           margin-left: 0.12rem;
         }
       }
-      .line {
-        width: 100%;
-        height: 0.04rem;
-        background: rgba(238, 238, 238, 1);
-        opacity: 0.4;
-        border-radius: 2px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
+      
     }
   }
   .boss {
@@ -217,16 +199,7 @@ export default {
           margin-left: 0.12rem;
         }
       }
-      .line {
-        width: 100%;
-        height: 0.04rem;
-        background: rgba(238, 238, 238, 1);
-        opacity: 0.4;
-        border-radius: 2px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
+      
     }
 
     .bottom {
@@ -249,16 +222,7 @@ export default {
           margin-left: 0.12rem;
         }
       }
-      .line {
-        width: 100%;
-        height: 0.04rem;
-        background: rgba(238, 238, 238, 1);
-        opacity: 0.4;
-        border-radius: 2px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
+      
     }
   }
 }
