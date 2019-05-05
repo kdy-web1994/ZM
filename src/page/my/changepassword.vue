@@ -1,5 +1,6 @@
 <template>
   <div class="conten">
+    <Header leftIcon="back" titleColor="#333" title="修改密码" bg="#F6F6F6"/>
     <div class="pass">
       <div class="passbody">
         <div class="inputbox">
@@ -155,7 +156,8 @@ input {
     height: 100%;
     text-align: center;
     font-size: 0.3rem;
-
+   padding-top: 0.88rem;
+   box-sizing: border-box;
     h3,p{
         margin: 0;
     }

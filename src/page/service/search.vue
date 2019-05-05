@@ -1,5 +1,6 @@
 <template>
   <div class="search">
+    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6" rightIcon="shop" rightText="附近的店"/>
     <div class="bg"></div>
     <div class="content">
       <div class="contentBox">
@@ -56,6 +57,7 @@ export default {
     z-index: 10;
     min-height: 100vh;
     padding: 0.2rem 0.3rem;
+  padding-top: 1.08rem;
     box-sizing: border-box;
 
     .contentBox {

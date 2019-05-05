@@ -1,5 +1,6 @@
 <template>
   <div class="message">
+    <Header leftIcon="back" titleColor="#333" title="我的消息"/>
     <mu-load-more :loading="false" @load="loadList" :loaded-all="all" v-if="List.length>0">
       <div class="box">
         <div class="item" v-for="(item,index) in List" :key="index">
@@ -114,8 +115,9 @@ export default {
 </script>
   <style lang="scss" scoped>
 .message {
- 
-  
+   padding-top: 0.88rem;
+   box-sizing: border-box;
+   background: #fff;
   min-height: 100vh;
   .noData{
     .icon{

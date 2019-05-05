@@ -1,5 +1,6 @@
 <template>
   <div class="conten">
+    <Header leftIcon="back" titleColor="#333" title="积分明细" bg="#F6F6F6"/>
     <div class="integralbox">
       <ul class="oul">
         <li>
@@ -72,7 +73,7 @@ export default {
     height: 100%;
     text-align: center;
     font-size: 0.3rem;
-
+    padding-top: 0.88rem;
     h3,p,ul{
       padding: 0;
         margin: 0;

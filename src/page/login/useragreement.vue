@@ -1,5 +1,6 @@
 <template>
   <div class="conten">
+     <Header leftIcon="backWhite" titleColor="#fff" title="用户协议" bg="linear-gradient(135deg,rgba(243,152,0,1) 0%,rgba(237,109,0,1) 100%)"/>
     <div class="check-info2">
 			<div v-html="article.content"></div>
 		</div>
@@ -35,6 +36,8 @@ export default {
 .conten{
     background-color: #fff;
     position: relative;
+    padding-top: 0.88rem;
+    box-sizing: border-box;
     height: 100%;
     text-align: center;
     font-size: 0.3rem;

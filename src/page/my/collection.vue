@@ -1,5 +1,6 @@
 <template>
   <div class="conten">
+    <Header leftIcon="back" titleColor="#333" title="我的收藏" bg="#F6F6F6"/>
     <div class="collectionbox">
       <div class="collectioncon">
         <div class="collectionimg"></div>
@@ -41,7 +42,7 @@ export default {
     position: relative;
     height: 100%;
     font-size: 0.3rem;
-
+    padding-top: 0.88rem;
     h3,p{
         margin: 0;
     }

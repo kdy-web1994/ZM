@@ -1,5 +1,6 @@
 <template>
   <div class="conten">
+    <Header leftIcon="back" titleColor="#333" title="意见反馈" bg="#F6F6F6"/>
     <div class="feedbackbox">
       <textarea class="tex" name=""  placeholder="您对中脉有什么意见和建议吗？告诉我们，帮中脉做得更好，每一条内容我们都会真诚对待。"></textarea>
       <div class="inputbox">
@@ -81,7 +82,7 @@ input {
     height: 100%;
     text-align: center;
     font-size: 0.3rem;
-
+    padding-top: 0.88rem;
     h3,p{
         margin: 0;
     }

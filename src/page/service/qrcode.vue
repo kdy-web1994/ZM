@@ -1,5 +1,6 @@
 <template>
   <div class="qrcode">
+     <Header leftIcon="back" titleColor="#333" title="签收问卷" bg="#F6F6F6"/>
     <div class="content">
       <div :class="['top',isFull===2?'showTop':'hideTop']">
         <p>1. 请问您所收到的包裹，外包装是否完好无损？</p>
@@ -92,12 +93,13 @@ export default {
   min-height: 100vh;
   background: #f6f6f6;
   position: relative;
+   padding: 0.2rem 0.3rem;
+  padding-top: 1.08rem;
+    box-sizing: border-box;
   .content {
     position: relative;
     z-index: 10;
-    min-height: 100vh;
-    padding: 0.2rem 0.3rem;
-    box-sizing: border-box;
+    
     p {
       font-size: 0.26rem;
       margin: 0;

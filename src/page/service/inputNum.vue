@@ -1,5 +1,6 @@
 <template>
     <div class="inputNum">
+      <Header leftIcon="back" titleColor="#333" title="物流单号" bg="#F6F6F6"/>
     <div class="bg">
         <div class="icon"></div>
     </div>
@@ -25,12 +26,13 @@
   min-height: 100vh;
   background: #f6f6f6;
   position: relative;
+   padding: 0.2rem 0.3rem;
+  padding-top: 1.08rem;
+  box-sizing: border-box;
   .content {
     position: relative;
     z-index: 10;
-    min-height: 100vh;
-    padding: 0.2rem 0.3rem;
-    box-sizing: border-box;
+   
 
     .contentBox {
       width: 6.9rem;

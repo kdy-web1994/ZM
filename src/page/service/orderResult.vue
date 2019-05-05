@@ -1,5 +1,6 @@
 <template>
     <div class="orderResult">
+      <Header leftIcon="back" titleColor="#333" title="订单查询" bg="#F6F6F6"/>
       <div class="content"></div>
       <div class="bg">
         <div class="icon"></div>
@@ -17,12 +18,14 @@ width: 100%;
   min-height: 100vh;
   background: #f6f6f6;
   position: relative;
+  padding: 0.2rem 0.3rem;
+  padding-top: 1.08rem;
+    box-sizing: border-box;
     .content{
       position: relative;
     z-index: 10;
-    min-height: 100vh;
-    padding: 0.2rem 0.3rem;
-    box-sizing: border-box;
+    
+    
     }
    .bg {
     width: 100%;

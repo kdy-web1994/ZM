@@ -1,5 +1,6 @@
 <template>
     <div class="order">
+      <Header leftIcon="back" titleColor="#333" title="订单查询" bg="#F6F6F6"/>
       <div class="content">
          <Item icon="orderNum" title="订单编号" :isRequire="false" placeholder="请输入" type="input" inputType="text" v-model="orderNum"/>
          <Item icon="attribute" title="订单属性" :isRequire="false" placeholder="请选择" type="select" />
@@ -31,6 +32,7 @@
   background: #f6f6f6;
   position: relative;
    padding: 0.2rem 0.3rem;
+   padding-top: 1.08rem;
    box-sizing: border-box;
    .content{
      background: #fff;

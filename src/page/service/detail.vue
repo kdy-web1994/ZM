@@ -1,5 +1,6 @@
 <template>
   <div class="detail">
+    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6"/>
     <resultItem :isOpen="true" phone="020-89898989" address="广东省广州市荔湾区周门北路38号" :More="true"/>
     <div class="personal">
       <div class="top">
@@ -72,6 +73,7 @@ export default {
   background: #f6f6f6;
   min-height: 100vh;
   padding: 0.2rem 0.3rem;
+  padding-top: 1.08rem;
   box-sizing: border-box;
   .personal {
     margin-top: 0.3rem;
