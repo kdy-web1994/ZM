@@ -164,7 +164,8 @@ input {
   height: 100%;
   text-align: center;
   font-size: 0.3rem;
-  padding: 0.88rem;
+  padding-top: 0.88rem;
+
 
   .loginhead {
     width: 7.5rem;
