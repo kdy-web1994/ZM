@@ -1,12 +1,13 @@
 <template>
     <div id="Footer">
-      <div  v-for="(item,index) in arr" :key="index" @click="go(index)" :class="['item',activeIndex===index?'activeBox':'']">
+      
+      <div  v-for="(item,index) in arr" :key="index" @click="go(index,item.router)" :class="['item',activeIndex===index?'activeBox':'']">
           <div>
             <div :class="['icon',item.icon,activeIndex===index?item.activeIcon:'' ]"></div>
                  <p :class="[activeIndex===index?'active':'']">{{item.text}}</p>
           </div>
       </div>
-    
+     
     </div>
   </template>
   <script>
@@ -19,33 +20,49 @@
             arr:[{
                icon:'home',
                activeIcon:'homeActive',
-               text:'首页'
+               text:'首页',
+               router:"/home"
             },{
                icon:'serve',
                activeIcon:'serveActive',
-               text:'服务'
+               text:'服务',
+                router:"/service"
             },
             {
                icon:'product',
                activeIcon:'productActive',
-               text:'产品'
+               text:'产品',
+                router:"/product"
             },
             {
                icon:'my',
                activeIcon:'myActive',
-               text:'我的'
+               text:'我的',
+                router:"/my"
             }
             
             
             ]
       }
     },
+    watch:{
+      '$route'(to,from){
+        console.log(to.path)
+      }
+    },
     created(){
-      
+       this.arr.forEach((item,index)=>{
+         if(item.router===this.$route.path){
+           this.activeIndex=index
+         }
+       })
     },
     methods:{
-      go(index){
+      go(index,router){
         this.activeIndex=index
+        this.$router.push({
+          path:router
+        })
       }
     }
 
@@ -59,6 +76,7 @@
     bottom: 0;
     height: 0.98rem;
     display: flex;
+    z-index: 999;
     background: #fff;
     border-top:1px solid #eee; 
     .item{

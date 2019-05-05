@@ -1,6 +1,6 @@
 <template>
     <div id="Header">
-      Header组件
+      
     </div>
   </template>
   <script>
@@ -10,7 +10,9 @@
   </script>
   <style lang="scss" scoped>
   .Header {
-  
+   height: 0.88rem;
+   display: flex;
+   
   }
   </style>
   

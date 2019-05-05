@@ -90,15 +90,15 @@ input {
     font-size: 0.3rem;
     box-sizing: border-box;
     overflow: hidden;
-
+     
     h3,p{
         margin: 0;
     }
     .search{
       width: 100%;
-      height: 0.6rem;
+      // height: 0.6rem;
       background-color: #fff8f2;
-      padding: 0.2rem 0 0;
+     padding-top: 0.2rem;
 
       .ipt{
         padding: 0 0.76rem;

@@ -53,7 +53,7 @@
               <span class="exit">退出登录</span>
           </div>
       </div>
-      <div class="microphone"></div>
+      <News />
   </div>
 </template>
 

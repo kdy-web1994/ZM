@@ -26,11 +26,7 @@ let routes = [{
     name: 'forgotpassword',
     component: () => import('@/page/login/forgotpassword')
   },
-  {
-    path: '/my',
-    name: 'my',
-    component: () => import('@/page/my/my')
-  },
+  
   {
     path: '/aboutus',
     name: 'aboutus',
@@ -76,7 +72,18 @@ let newRouter=new Router({
         path: '/service',
         name: 'service',
         component: () => import('@/page/main/service')
-      }]
+      },
+      {
+        path: '/my',
+        name: 'my',
+        component: () => import('@/page/main/my')
+      },
+      {
+        path: '/product',
+        name: 'product',
+        component: () => import('@/page/main/product')
+      }
+    ]
     },
     ...routes,
     ...product,

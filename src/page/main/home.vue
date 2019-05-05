@@ -85,7 +85,7 @@ export default {
 
 <style lang='scss' scoped>
 .content {
-  background-color: #fff;
+  // background-color: #fff;
   position: relative;
   height: 100%;
   font-size: 0.3rem;
