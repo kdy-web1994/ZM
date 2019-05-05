@@ -48,7 +48,7 @@
            <div class="title">备注<div class="isRequire"></div>
         </div>
            <textarea  placeholder="请输入"/>
-            <div class="line"></div>
+             <boxLine />
          </div>
       </div>
        <div class="msg" v-show="isEnough===2">
@@ -284,16 +284,7 @@ position: relative;
         /* Internet Explorer 10-11 */
         color: #cccccc;
       }
-        .line{
-          width: 100%;
-    height: 0.04rem;
-    background: rgba(238, 238, 238, 1);
-    opacity: 0.4;
-    border-radius: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-        }
+        
       }
     }
 

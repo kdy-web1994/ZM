@@ -17,7 +17,7 @@
         <input :type="inputType" :placeholder="placeholder" :value="value" @input="$emit('input',$event.target.value)">
       </div>
     </div>
-    <div class="line"></div>
+    <boxLine />
   </div>
 </template>
   <script>
@@ -39,16 +39,7 @@ export default {
   display: flex;
   position: relative;
   align-items: center;
-  .line {
-    width: 100%;
-    height: 0.04rem;
-    background: rgba(238, 238, 238, 1);
-    opacity: 0.4;
-    border-radius: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+  
   .box {
     width: 100%;
     .top {

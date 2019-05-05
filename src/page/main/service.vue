@@ -1,5 +1,17 @@
 <template>
   <div class="service">
+    <div class="homeHeader">
+        <div class="left">
+          <div class="num">12</div>
+          <div class="icon"></div>
+        </div>
+        <div class="input">
+           <div class="icon"></div>
+        </div>
+        <div class="right">
+           <div class="icon"></div>
+        </div>
+    </div>
      <div class="swiperBox">
       <swiperBox :swiperList="swList" :canJump="true"></swiperBox>
     </div>
@@ -105,6 +117,76 @@ export default {
  .service{
      min-height: 100vh;
      background: #F4F4F4;
+     padding-top: .88rem;
+     padding-bottom: 1.18rem;
+     .homeHeader{
+        display: flex;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        height: 0.88rem;
+        background: url('../../../static/zmimg/common/common_bg_nav@3x.png') no-repeat;
+        background-size:100% 100%; 
+        align-items: center;
+        .left{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: .95rem;
+          height: 100%;
+          position: relative;
+             .icon{
+              width: .44rem;
+              height: .44rem;
+              background: url("../../assets/common_icon_news@3x.png") no-repeat;
+              background-size:100% 100%; 
+              
+             }
+             .num{
+               background: #FF2525;
+               color: #fff;
+               font-size: 0.32rem;
+               border-radius:.2rem;
+               transform: scale(.5) translateY(-50%);
+               position: absolute;
+               right: -0.12rem;
+               padding:0rem 0.12rem; 
+               top: 0.1rem;
+             }
+        }
+        .input{
+          width: 5.57rem;
+          height: 0.56rem;
+          // background:rgba(255,255,255,.2);
+          // border-radius:.28rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .icon{
+              width: 2.4rem;
+              height: .38rem;
+              background: url("../../assets/common_icon_logo@3x.png") no-repeat;
+              background-size:100% 100%; 
+            
+          }
+        
+         
+        }
+        .right{
+           display: flex;
+          align-items: center;
+          justify-content: center;
+          width: .98rem;
+           .icon{
+              width: .44rem;
+              height: .44rem;
+              background: url("../../assets/common_icon_phone@3x.png") no-repeat;
+              background-size:100% 100%; 
+               position: relative;
+             }
+        }
+     }
      .swiperBox{
        position: relative;
        height: 3rem;
