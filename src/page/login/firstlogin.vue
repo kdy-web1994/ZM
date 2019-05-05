@@ -1,5 +1,6 @@
 <template>
   <div class="conten">
+    <Header leftIcon="backWhite" titleColor="#fff" title="" bg="url(/static/zmimg/login/login_bg@2x.png) no-repeat 0 0"/>
     <div class="loginhead"></div>
     <div class="loginbody">
       <div class="logo"></div>
@@ -25,7 +26,7 @@
       我已阅读并同意
       <span class="agreement" @click="$router.push({name:'useragreement'})">《用户协议》</span>
     </div>
-    <Guide /> 
+    <!-- <Guide />  -->
   </div>
 </template>
 
@@ -128,6 +129,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+*{
+  box-sizing: content-box;
+}
 input {
   outline: none;
   background: transparent;
@@ -167,10 +171,11 @@ input {
   height: 100%;
   text-align: center;
   font-size: 0.3rem;
+  padding-top: 0.88rem;
 
   .loginhead {
-    width: 7.5rem;
-    height: 2.8rem;
+    width: 100%;
+    height: 2.5rem;
     background-image: url(/static/zmimg/login/login_bg@2x.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;

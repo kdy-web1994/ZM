@@ -96,10 +96,13 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+*{
+  box-sizing: content-box;
+}
 .demo-loading {
   .van-loading {
     display: inline-block;
-    margin: 5px 0 5px 20px;
+    margin: 0.05rem 0 0.05rem 0.2rem;
   }
 }
 input {

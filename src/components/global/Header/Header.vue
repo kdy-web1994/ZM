@@ -51,8 +51,9 @@
     position: fixed;
     top: 0;
     left: 0;
-   height: 0.88rem;
-   z-index: 999;
+    height: 0.88rem;
+    z-index: 999;
+    background-size: 100% 100%;
   
    .left{
      min-width: 0.95rem;

@@ -1,5 +1,6 @@
 <template>
   <div class="conten">
+    <Header leftIcon="backWhite" titleColor="#fff" title="" bg="url(/static/zmimg/login/login_bg@2x.png) no-repeat 0 0"/>
     <div class="loginhead"></div>
     <div class="loginbody">
       <div class="logo"></div>
@@ -125,6 +126,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+*{
+  box-sizing: content-box;
+}
 input {
   outline: none;
   background: transparent;
@@ -160,10 +164,11 @@ input {
   height: 100%;
   text-align: center;
   font-size: 0.3rem;
+  padding: 0.88rem;
 
   .loginhead {
     width: 7.5rem;
-    height: 2.8rem;
+    height: 2.5rem;
     background: linear-gradient(to right, #f4aa31, #f19a2f, #f08a31);
   }
   .loginbody {

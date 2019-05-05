@@ -4,11 +4,11 @@
 
       <div class="close"></div>
 
-      <!-- <div>
+      <div>
         <div class="back_t">CN</div>
         <div class="line_a"></div>
         <div class="hint_a"></div>
-      </div> -->
+      </div>
 
       <!-- <div>
         <div class="id_card">身份证号码</div>
@@ -22,15 +22,15 @@
         <div class="hint_c"></div>
       </div> -->
 
-      <div>
+      <!-- <div>
         <div class="cipher">设置8位数字及字母</div>
         <div class="line_d"></div>
         <div class="hint_d"></div>
-      </div>
+      </div> -->
       
-      <!-- <div class="next"></div> -->
+      <div class="next"></div>
 
-      <div class="know"></div>
+      <!-- <div class="know"></div> -->
     </div>
   </div>
 </template>

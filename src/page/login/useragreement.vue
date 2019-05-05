@@ -33,6 +33,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+*{
+  box-sizing: content-box;
+}
 .conten{
     background-color: #fff;
     position: relative;
