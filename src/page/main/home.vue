@@ -110,6 +110,7 @@ export default {
   height: 100%;
   font-size: 0.3rem;
   padding-top: 0.88rem;
+   padding-bottom: 1.18rem;
      .homeHeader{
         display: flex;
         width: 100%;

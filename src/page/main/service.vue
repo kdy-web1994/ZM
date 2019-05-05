@@ -118,6 +118,7 @@ export default {
      min-height: 100vh;
      background: #F4F4F4;
      padding-top: .88rem;
+     padding-bottom: 1.18rem;
      .homeHeader{
         display: flex;
         width: 100%;
