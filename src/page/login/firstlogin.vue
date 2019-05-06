@@ -1,7 +1,9 @@
 <template>
   <div class="conten">
-    <Header leftIcon="backWhite" titleColor="#fff" title="" bg="url(/static/zmimg/login/login_bg@2x.png) no-repeat 0 0"/>
-    <div class="loginhead"></div>
+    <!-- <Header leftIcon="backWhite" titleColor="#fff" title="" bg="url(/static/zmimg/login/login_bg@2x.png) no-repeat 0 0"/> -->
+    <div class="loginhead">
+      <div class="icon" @click="goBack"></div>
+    </div>
     <div class="loginbody">
       <div class="logo"></div>
       <div class="loginbox">
@@ -51,6 +53,14 @@ export default {
     
   },
   methods: {
+    goBack(){
+      if(this.$route.query.app==1){
+				this.$call.goBack('')
+			}else{
+				// this.$router.go(-1)
+				history.back(-1)
+			}
+    },
       openeyes(){//密码是否可见
         this.isActive = !this.isActive;
       },
@@ -171,14 +181,23 @@ input {
   height: 100%;
   text-align: center;
   font-size: 0.3rem;
-  padding-top: 0.88rem;
+  
 
   .loginhead {
     width: 100%;
-    height: 2.5rem;
+    height: 2.9rem;
     background-image: url(/static/zmimg/login/login_bg@2x.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    .icon{
+        width: 0.32rem;
+       height: 0.32rem;
+       background: url("../../assets/back.png") no-repeat;
+       background-size:100% 100%; 
+       position: relative;
+        top: 0.28rem;
+        left: 0.3rem;
+    }
   }
   .loginbody {
     width: 6.9rem;

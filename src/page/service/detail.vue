@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6"/>
+    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6" />
     <resultItem :isOpen="true" phone="020-89898989" address="广东省广州市荔湾区周门北路38号" :More="true"/>
     <div class="personal">
       <div class="top">
@@ -65,6 +65,9 @@
 export default {
   components: {
     resultItem: () => import("./components/resultItem")
+  },
+  methods:{
+     
   }
 };
 </script>

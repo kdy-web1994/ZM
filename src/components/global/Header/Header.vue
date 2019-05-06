@@ -4,7 +4,7 @@
           <div :class="['icon',leftIcon]" v-if="leftIcon!==''"></div>
         </div>
         <div class="title" :style="[{'color':titleColor}]">{{title}}</div>
-        <div class="right">
+        <div class="right" @click="cb">
           <div :class="['icon',rightIcon]" v-if="rightIcon!==''"></div>
           <span v-if="rightText!==''">{{rightText}}</span>
         </div>
@@ -41,6 +41,9 @@
 				// this.$router.go(-1)
 				history.back(-1)
 			}
+      },
+      cb(){
+        this.$emit('cb')
       }
     }
   }

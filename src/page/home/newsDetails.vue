@@ -14,11 +14,29 @@
            <div class="share"></div>
          </div>
       </div>
+      <div class="content"></div>
     </div>
   </template>
   <script>
   export default {
-    
+    created(){
+        
+    },
+    methods:{
+      loadNewsDetail(){
+			let id=this.pageParam,
+				userId = (JSON.parse(localStorage.getItem('zm_user'))||{}).id||0
+			this.$Api.getArticleDetails(0,id,userId).then(res=>{
+				console.log(res)
+				let q=res.q
+				if(q.s==0){
+					q.article.imagePath=this.$base.pinImgPrefix(q.article.imagePath)
+					this.detail=q.article
+					this.shareConfig()
+				}
+			})
+		}
+    }
   }
   </script>
   <style lang="scss" scoped>

@@ -1,18 +1,18 @@
 <template>
   <div class="resultItem">
-    <div class="open" v-if="isOpen"></div>
+    <div class="open" v-if="item.status==='1'" ></div>
     <div class="close" v-else>未营业</div>
     <div class="top item">
       <div class="content">
         <div class="left">
           <div class="icon"></div>
-          <div class="addressBox">{{address}}</div>
+          <div class="addressBox">{{item.address.street}}</div>
         </div>
-        <div class="right">一键导航</div>
+        <div class="right" @click="map([item.address.longitude,item.address.latitude])">一键导航</div>
       </div>
       <boxLine />
     </div>
-    <div class="bottom item">
+    <div v-for='phone in item.phone' :key='phone[1]' @click="phone(phone)" class="bottom item">
       <div class="content">
         <div class="icon"></div>
         <span>{{phone}}</span>
@@ -24,8 +24,18 @@
 </template>
   <script>
 export default {
-  props: ["address", "phone", "isOpen","More"],
-  methods: {}
+  props: ["item","More"],
+  methods: {
+    map(arr){
+      this.$emit("map",arr)
+    },
+    phone(phone){
+      if(phone.indexOf('/')>=0)
+        phone=phone.slice(0,phone.indexOf('/'))
+			window.location.href=`tel:${phone}`
+   
+    }
+  }
 };
 </script>
   <style lang="scss" scoped>

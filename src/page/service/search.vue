@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6" rightIcon="shop" rightText="附近的店"/>
+    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6" rightIcon="shop" rightText="附近的店" @cb="go"/>
     <div class="bg"></div>
     <div class="content">
       <div class="contentBox">
@@ -60,7 +60,13 @@ export default {
      alert(){
             this.show=false
             localStorage.setItem("firstSearch",1)
-     }
+     },
+     go(){
+      this.$router.push({
+        path:"/service/result",
+        query:[JSON.stringify({a:1})]
+      })
+    }
   }
 };
 </script>

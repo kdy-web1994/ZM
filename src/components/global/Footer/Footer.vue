@@ -48,6 +48,11 @@
     watch:{
       '$route'(to,from){
         console.log(to.path)
+        this.arr.forEach((item,index)=>{
+         if(item.router===to.path){
+           this.activeIndex=index
+         }
+       })
       }
     },
     created(){

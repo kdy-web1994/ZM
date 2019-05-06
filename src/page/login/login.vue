@@ -142,7 +142,7 @@ input {
   font-size: 0.3rem;
 
   .loginhead {
-    height: 2.8rem;
+    height: 2.9rem;
     background-image: url(/static/zmimg/login/login_bg@2x.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
