@@ -28,8 +28,9 @@
         </div>
       </div>
     </div>
-    <div class="Pop" v-if="show" @click.stop="close">
+    <div class="Pop" v-if="show" @click.stop="close('show')">
       <div class="PopBox">
+        <div class="question" @click="goQuestion"></div>
         <div class="top">
           <div class="content">如果使用扫一扫无法识别，请使用手动输入。</div>
         </div>
@@ -39,6 +40,28 @@
         </div>
       </div>
     </div>
+    
+    <div class="tip" v-if="tip" @click.stop="close('tip')">
+      <div class="tipBox">
+        <div class="tipTitle">
+                            仅首次点击会提示
+                        </div>
+         <div class="top">
+           <img src="../../../static/zmimg/service/service_bg_scan@3x.png" class="icon" />
+          <div class="content">
+                            如果你无法简洁的表达你的想法，<br/>
+                   那只说明你还不够了解它。       <br/>
+                 -- 阿尔伯特·爱因斯坦
+                        </div>
+        </div>
+        <div class="bottom" @click.stop="closeTip">
+           确认
+        </div>
+
+      </div>
+
+    </div>
+
     <News/>
   </div>
 </template>
@@ -48,6 +71,7 @@ export default {
     return {
       swList: [],
       show: false,
+      tip:false,
       itemArr: [
         {
           bg: "rgba(255,249,249,1)",
@@ -67,34 +91,40 @@ export default {
           title: "扫码签收",
           router: "scan"
         },
-        {
-          bg: "rgba(248,255,249,1)",
-          icon: "standard",
-          title: "运作规范"
-        },
-        {
-          bg: "rgba(255,248,238,1)",
-          icon: "media",
-          title: "媒体中心"
-        },
+        // {
+        //   bg: "rgba(248,255,249,1)",
+        //   icon: "standard",
+        //   title: "运作规范"
+        // },
+        // {
+        //   bg: "rgba(255,248,238,1)",
+        //   icon: "media",
+        //   title: "媒体中心"
+        // },
         {
           bg: "rgba(241,242,255,1)",
           icon: "school",
           title: "美丽学堂"
         },
-        {
-          bg: "rgba(255,238,238,1)",
-          icon: "woman",
-          title: "美的人"
-        }
+        // {
+        //   bg: "rgba(255,238,238,1)",
+        //   icon: "woman",
+        //   title: "美的人"
+        // }
       ]
     };
   },
   created() {
     this.getSwiper();
+    
   },
   mounted() {},
   methods: {
+    goQuestion(){
+       this.$router.push({
+        path: "/service/active"
+      });
+    },
     goMessage() {
       console.log(1)
       this.$router.push({
@@ -104,8 +134,14 @@ export default {
     tel() {
       window.location.href = `tel:${this.$config.user.mobile}`;
     },
-    close() {
-      this.show = false;
+    closeTip(){
+      this.tip=false;
+localStorage.setItem('tip',1)
+        this.show = true;
+    },
+    close(txt) {
+      this[txt] = false;
+      
     },
     // 查询物流单号是否合法  是否被签收过
     checkLog(trackingNumber) {
@@ -142,7 +178,12 @@ export default {
     },
     go(router) {
       if (router === "scan") {
-        this.show = true;
+        if(!localStorage.getItem('tip')){
+      this.tip=true
+    }else{
+      this.show = true;
+    }
+        
         return;
       }
       this.$router.push({
@@ -207,7 +248,15 @@ export default {
       background: #fff;
       z-index: 99999;
       position: relative;
-
+      .question{
+        position: absolute;
+        width: 0.24rem;
+        height: 0.24rem;
+        background: url('../../assets/service_icon_question@3x.png') no-repeat;
+        background-size:100% 100%; 
+        right: 0.2rem;
+        top: 0.2rem;
+      }
       .top {
         min-height: 1.48rem;
         border-bottom: 1px solid #d6d7d9;
@@ -244,6 +293,92 @@ export default {
       }
     }
   }
+  .tip {
+    position: fixed;
+
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .tipBox {
+      width: 5.4rem;
+      height: 5.56rem;
+      border-radius: 0.2rem;
+      background: #fff;
+      z-index: 99999;
+      position: relative;
+      .tipTitle{
+        font-size:0.3rem;
+        margin-top: 0.5rem;
+        text-align: center;
+        font-weight:500;
+      }
+      .question{
+        position: absolute;
+        width: 0.24rem;
+        height: 0.24rem;
+        background: url('../../assets/service_icon_question@3x.png') no-repeat;
+        background-size:100% 100%; 
+        right: 0.2rem;
+        top: 0.2rem;
+      }
+      .top {
+         font-weight:400;
+        position: relative;
+        text-align: center;
+        padding-left: 0.76rem;
+        padding-top: 0.3rem;
+        padding-bottom: 2.24rem;
+        box-sizing: border-box;
+
+        .content {
+          font-size: 0.26rem;
+          position: relative;
+          z-index: 9999
+        }
+
+        .icon{
+          width: 5.4rem;
+          height: 3.17rem;
+         
+          
+          position: absolute;
+          left: 0;
+          bottom: 0; 
+        }
+      }
+
+      .bottom {
+        width: 100%;
+        height: 0.88rem;
+        text-align: center;
+        line-height: .88rem;
+        color: 0.34rem;
+        color: #ED6C00;
+        font-weight:400;
+        
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   .homeHeader {
     display: flex;
     width: 100%;
