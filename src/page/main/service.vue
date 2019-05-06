@@ -104,7 +104,8 @@ export default {
         {
           bg: "rgba(241,242,255,1)",
           icon: "school",
-          title: "美丽学堂"
+          title: "美丽学堂",
+           router: "study"
         },
         // {
         //   bg: "rgba(255,238,238,1)",
