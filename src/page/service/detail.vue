@@ -61,6 +61,7 @@
   </div>
 </template>
   <script>
+  import { Toast } from 'vant'
 export default {
   components: {
     resultItem: () => import("./components/resultItem")
