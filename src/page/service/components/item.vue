@@ -1,5 +1,6 @@
 <template>
   <div class="Item">
+    <div class="ItemBox">
     <div class="box">
       <div class="top">
         <div :class="['icon',icon]"></div>
@@ -16,6 +17,7 @@
       <div class="bottom" v-else>
         <input :type="inputType" :placeholder="placeholder" :value="value" @input="$emit('input',$event.target.value)">
       </div>
+    </div>
     </div>
     <boxLine />
   </div>
@@ -36,10 +38,16 @@ export default {
   <style lang="scss" scoped>
 .Item {
   height: 1.5rem;
-  display: flex;
-  position: relative;
-  align-items: center;
   
+  position: relative;
+  
+  width: 100%;
+  .ItemBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
   .box {
     width: 100%;
     .top {

@@ -21,6 +21,15 @@
       </div>
       <div class="btn">查询</div>
     </div>
+     <Pop  
+      title="温馨提示" 
+      type="alert" 
+      contentText="亲爱的家人，您好！本次查询结果仅作为借力使用，不作为店铺审核依据，谢谢！"
+      alertText="我已知悉"
+      @alert="alert"
+      
+      v-if="show"
+      /> 
   </div>
 </template>
   <script>
@@ -33,7 +42,8 @@ export default {
           name:"",
           phone:"",
           tel:"",
-          number:""
+          number:"",
+          show:false
     }
   },
   watch:{
@@ -41,8 +51,16 @@ export default {
        console.log(a)
      }
   },
+  created(){
+      if(!localStorage.getItem("firstSearch")){
+        this.show=true
+      }
+  },
   methods:{
-
+     alert(){
+            this.show=false
+            localStorage.setItem("firstSearch",1)
+     }
   }
 };
 </script>
