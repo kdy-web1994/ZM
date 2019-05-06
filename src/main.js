@@ -41,7 +41,14 @@ import axios from 'axios'
 Vue.prototype.$axios = axios
 Vue.prototype.$Api = Api
 Vue.prototype.$call = call
-
+Vue.prototype.$config = {
+  loadText:['加载中..','没有更多了~','暂无数据'],
+  user: {
+    mobile: '02036156999',
+  },
+  view_update: new Date().getTime(),
+  appWidth: app.offsetWidth,
+}
 
 
  import 'muse-ui/dist/muse-ui.css';

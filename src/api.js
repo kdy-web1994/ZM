@@ -177,7 +177,7 @@ function axiosApi(url, option, method = 'POST', stopLogin = false, cancelToken,i
     }).catch((err) => {
 			console.log(err)
 			reject(err)
-			toast099.clear()
+			// toast099.clear()
 		})
 		
 	})
