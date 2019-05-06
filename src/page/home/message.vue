@@ -137,7 +137,7 @@ export default {
       height: 3.63rem;
       margin: auto;
       margin-top: 1.87rem;
-      background: url("../../../static/zmimg/common/default page_no_message@3x.png") no-repeat;
+      background: url("../../../static/zmimg/common/message.png") no-repeat;
       background-size:100% 100%; 
     }
     p{

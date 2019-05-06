@@ -42,13 +42,13 @@ export default {
     .icon {
       width: 1.78rem;
       height: 2.14rem;
-      background: url("../../assets/default page_order@3x.png") no-repeat;
+      background: url("../../assets/page_order.png") no-repeat;
       background-size: 100% 100%;
     }
     .icon1 {
       width: 5.45rem;
       height: 3.5rem;
-      background: url("../../assets/default page_delivery@3x.png") no-repeat;
+      background: url("../../assets/page_delivery.png") no-repeat;
       background-size: 100% 100%;
     }
   }
