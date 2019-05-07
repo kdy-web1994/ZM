@@ -191,4 +191,12 @@ input {
 }
 
 </style>
+<style lang="scss">
+.conten{
+  .van-hairline--top-bottom::after {
+    border-width: 0 0;
+}
+}
+</style>
+
 
