@@ -127,6 +127,8 @@ export default {
         this.show=true
       }
       this.role = (JSON.parse(localStorage.getItem('zm_user'))||{}).type
+
+      console.log(this.role)
   },
   beforeRouteLeave(to,from,next){
     if(this.$loading){
@@ -249,11 +251,13 @@ export default {
           if(q.s==0){
             console.log(JSON.stringify(res.q.items))
             res.q.items[1].childs[0].name=' '+res.q.items[1].childs[0].name+' '
-            this.$loading.clear()
+            
             this.renderArea(1,null,res.q.items)
             localStorage.setItem('zm_areaList',JSON.stringify(res.q.items))
           }
           localStorage.setItem('zm_areaTime',new Date().getTime())
+        }).finally(()=>{
+          this.$loading.clear()
         })
      
     },
@@ -385,6 +389,12 @@ export default {
  .search{
    .van-hairline--top-bottom::after {
     border-width: 1 !important;
+}
+.van-hairline--top-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
 }
  }
 </style>
