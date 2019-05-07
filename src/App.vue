@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -87,6 +87,35 @@ html,body,#app{
 }
 .van-tab__pane{
   height: 100% !important;
+}
+
+.van-popup {
+  .van-picker__toolbar {
+    height:.8rem;
+    line-height:.8rem;
+    .van-picker__cancel, .van-picker__confirm{
+      padding:0 .3rem;
+    }
+  }
+}
+
+.van-picker__toolbar{
+  .van-picker__confirm{
+    color:#333;
+  }
+  .van-picker__cancel{
+    color:#333;
+  }
+  .van-picker-column__item{
+    font-size:.35rem;
+  }
+}
+
+.van-hairline--top-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:rgba(238,238,238,1);
 }
 
 </style>

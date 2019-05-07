@@ -7,18 +7,24 @@ import store from './store/store'  //vuex
 import init from './components/index.js'
 init()
 
-import { Tab, Tabs, Badge, BadgeGroup, Row, Col, Loading } from 'vant';
+import { Tab, Tabs, Badge, BadgeGroup, Row, Col, Loading,Popup  } from 'vant';
 Vue.use(Tab).use(Tabs);
 Vue.use(Badge);
 Vue.use(BadgeGroup);
 Vue.use(Row).use(Col);
 Vue.use(Loading);
-
+Vue.use(Popup)
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {
       FastClick.attach(document.body);
   }, false);
 }
+
+import 'mint-ui/lib/style.css'
+import { Picker } from 'mint-ui';
+
+Vue.component(Picker.name, Picker);
+
 
 import './plugins/Toast/toast.css'; //自己写的插件css样式
 import(/* webpackChunkName: "Toast" */ './plugins/Toast/toast').then((_)=>{  //引入插件
@@ -31,6 +37,10 @@ import(/* webpackChunkName: "Alert" */ './plugins/Alert/Alert').then((_)=>{  //�
   Vue.use(_)
 })
 
+import './plugins/Loading/Loading.css'; //alert 组件
+import(/* webpackChunkName: "Loading" */ './plugins/Loading/Loading').then((_)=>{  //引入插件
+  Vue.use(_)
+})
 
 import base from '@/assets/js/base.js'
 Vue.prototype.$base = base

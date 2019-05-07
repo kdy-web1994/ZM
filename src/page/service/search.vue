@@ -1,11 +1,11 @@
 <template>
   <div class="search">
-    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6" rightIcon="shop" rightText="附近的店" @cb="go"/>
+    <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6" rightIcon="shop"  rightText="附近的店" @cb="go"/>
     <div class="bg"></div>
     <div class="content">
       <div class="contentBox">
-        <Item icon="region" title="所在地区" :isRequire="true" placeholder="请选择省/市/区/镇" type="select"/>
-        <Item icon="address" title="详细地址" :isRequire="false" placeholder="请选择" type="select"/>
+        <Item icon="region" title="所在地区" :isRequire="true" placeholder="请选择省/市/区/镇" :value="regionIdText" type="select" @getArea="getArea"/>
+        <Item  icon="address" :value="streetIdText" :regionId="postData.regionId" title="详细地址" :isRequire="false" placeholder="请选择" type="select"/>
         <Item icon="shop" title="店铺状态" :isRequire="false" placeholder="请选择" type="select"/>
       </div>
       <div class="warning">
@@ -39,11 +39,22 @@ export default {
   },
   data(){
     return {
+      regionIdText:"",
+      streetIdText:"",
           name:"",
           phone:"",
           tel:"",
           number:"",
-          show:false
+          show:false,
+          postData:{
+        regionId:'',        // 地区编号
+        streetId: '',       // 街道编号
+        shopStatus:'',
+        userName:'',
+        mobile:'',
+        shopSn:'',
+        phone:'',
+      }
     }
   },
   watch:{
@@ -57,6 +68,13 @@ export default {
       }
   },
   methods:{
+    getArea(obj,temp){
+        this.streetIdText=''  // 清空原详细地址文本
+        this.postData.streetId=''  // 清空原详细地址参数
+        this.postData.regionId=obj[obj.length-1].id  // 输出区域代号
+        this.regionIdText=temp.join(' ')  // 输出区域字符串
+       
+    },
      alert(){
             this.show=false
             localStorage.setItem("firstSearch",1)
