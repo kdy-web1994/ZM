@@ -21,7 +21,7 @@
           <input class="ipt passwords" v-model="cipher" @input="iptinput()" :type="isActive==false?'password':'text'" placeholder="设置8位数字及字母新密码" >
           <i class="eyes" :class="[{eyesopen: isActive}]" @click="openeyes()"></i>
         </div>
-        <div class="btn" :class="[{btnbackground:isbtn}]" @click="firstlogin()">登陆</div>
+        <div class="btn" :class="[{btnbackground:isbtn}]" @click="firstlogin()">登录</div>
       </div>
     </div>
     <div class="base">

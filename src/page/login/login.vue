@@ -13,7 +13,7 @@
           <i class="eyes" :class="[{eyesopen: isActive}]" @click="openeyes()"></i>
         </div>
         <div class="btn" :class="[{btnbackground:isbtn}]" @click="login()">
-            登陆
+            登录
         </div>
         <div class="functionbtn">
             <a class="first" @click='$router.push({name:"firstlogin"})'>首次登陆</a>
@@ -37,6 +37,7 @@ export default {
       isbtn:false,
       names: '',
       cipher: '',
+      isLogin:false
     };
   },
   mounted() {},
@@ -52,6 +53,10 @@ export default {
         }
       },
       login(){//登陆
+      if(this.isLogin){
+        return
+      } 
+          this.isLogin=true
         if(this.isbtn!=false){
           let uid = 'CN'+this.names
           let password = md5(this.cipher)
@@ -61,7 +66,7 @@ export default {
               this.loadUserDetails() // 更新设备用户  // 更新用户信息
             }
           }).finally((c)=>{
-            
+             this.isLogin=false
           })
         }
       },
