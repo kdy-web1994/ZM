@@ -69,7 +69,8 @@ export default {
   data(){
     return {
       item:{},
-      id:""
+      id:"",
+      shop:{}
     }
   },
   created(){
