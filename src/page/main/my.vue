@@ -3,21 +3,23 @@
       <div class="myhead">
           <div class="top">
               <span class="name">买买提.买买不提</span>
-              <span class="news"></span>
+              <span class="news">
+                  <div class="reddot">99+</div>
+              </span>
               <span class="phone"></span>
           </div>
           <div class="serialnum">用户编号：<span>CN0000000</span></div>
           <div class="bottom">
               <div class="func">
                   <div class="funcbox" @click='$router.push({name:"integral"})'>
-                    <div class="iconbox"></div>
+                    <div class="iconbox integrals"></div>
                     <p>扫码积分</p>
                     <span>99999</span>
                   </div>
               </div>
               <div class="func">
                   <div class="funcbox" @click='$router.push({name:"collection"})'>
-                    <div class="iconbox"></div>
+                    <div class="iconbox collections"></div>
                     <p>我的收藏</p>
                     <span>111</span>
                   </div>
@@ -26,24 +28,24 @@
       </div>
       <div class="mybody">
           <div class="item" @click='$router.push({name:"changepassword"})'>
-              <i class="left"></i>
+              <i class="left lock"></i>
               <span class="cont" >修改密码</span>
               <i class="right"></i>
           </div>
           <div class="center">
 
                <div class="items" @click='$router.push({name:"feedback"})'>
-                    <i class="left"></i>
+                    <i class="left feedbacks"></i>
                     <span class="cont">意见反馈</span>
                     <i class="right"></i>
                 </div>
                 <div class="items" @click='$router.push({name:"aboutus"})'>
-                    <i class="left"></i>
+                    <i class="left people"></i>
                     <span class="cont">关于我们</span>
                     <i class="right"></i>
                 </div>
                 <div class="items">
-                    <i class="left"></i>
+                    <i class="left trash"></i>
                     <span class="cont">清理缓存</span>
                     <i class="right"></i>
                 </div>
@@ -77,7 +79,7 @@ export default {
     position: relative;
     height: 100%;
     font-size: 0.3rem;
-
+    
     p{
         margin: 0;
     }
@@ -96,24 +98,48 @@ export default {
             display: -ms-flexbox;      /* TWEENER - IE 10 */
             display: -webkit-flex;     /* NEW - Chrome */
             display: flex;
+            height: 0.63rem;
+            line-height: 0.43rem;
 
             span{
                 display: block;
             }
             .name{
-                width: 80%;
+                width: 75%;
                 color: #fff;
                 text-align: left;
-                font-size: 0.4rem;
+                font-size: 0.38rem;
+                font-weight: 600;
             }
             .news{
                 width: 0.43rem;
-                background-color: #fff;
+                height: 0.43rem;
+                background-image: url('~assets/common_icon_news@3x.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                position: relative;
+
+                .reddot{
+                    width: 0.42rem;
+                    height: 0.42rem;
+                    text-align: center;
+                    background-color: #fc2520;
+                    color: #fff;
+                    font-size: 0.14rem;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: -0.16rem;
+                    top: -0.22rem;
+                }
+                
             }
             .phone{
-                margin-left: 0.3rem;
+                margin-left: 0.5rem;
                 width: 0.43rem;
-                background-color: #fff;
+                height: 0.43rem;
+                background-image: url('~assets/common_icon_phone@3x.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
             }
         }
         .serialnum{
@@ -135,7 +161,7 @@ export default {
             display: flex;
 
             .func{
-                padding-top: 0.5rem;
+                padding-top: 0.2rem;
                 width: 50%;
                 text-align: center;
                 .funcbox{
@@ -143,13 +169,23 @@ export default {
                     margin: 0 auto;
 
                     .iconbox{
-                        width: 0.44rem;
-                        height: 0.38rem;
-                        background-color: #fff;
+                        width: 0.6rem;
+                        height: 0.6rem;
                         margin: 0 auto;
+                    }
+                    .integrals{
+                        background-image: url(/static/zmimg/my/my_icon_star@2x.png);
+                        background-size: 100% 100%;
+                        background-repeat: no-repeat;
+                    }
+                    .collections{
+                        background-image: url(/static/zmimg/my/my_icon_heart@2x.png);
+                        background-size: 100% 100%;
+                        background-repeat: no-repeat;
                     }
                     p{
                         color: #fff;
+                        font-size: 0.26rem;
                     }
                     span{
                         color: #ffca9e;
@@ -176,11 +212,16 @@ export default {
                 margin: auto;
             }
             .left{
-                width: 0.23rem;
-                height: 0.29rem;
-                background-color: #ed6d00;
+                width: 0.28rem;
+                height: 0.34rem;
                 left: 0.24rem;
             }
+            .lock{
+                background-image: url(/static/zmimg/my/my_icon_password@2x.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+
             .right{
                 width: 0.4rem;
                 height: 0.4rem;
@@ -188,7 +229,7 @@ export default {
             }
             .cont{
                 position: absolute;
-                left: 0.6rem;
+                left: 0.7rem;
                 top: 0;
                 bottom: 0;
                 margin: auto;
@@ -218,11 +259,26 @@ export default {
                     margin: auto;
                 }
                 .left{
-                    width: 0.23rem;
-                    height: 0.29rem;
-                    background-color: #ed6d00;
+                    width: 0.28rem;
+                    height: 0.34rem;
                     left: 0;
                 }
+                .feedbacks{
+                    background-image: url(/static/zmimg/my/my_icon_opinion@2x.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                }
+                .people{
+                    background-image: url(/static/zmimg/my/my_icon_person@2x.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                }
+                .trash{
+                    background-image: url(/static/zmimg/my/my_icon_deleate@2x.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                }
+
                 .right{
                     width: 0.4rem;
                     height: 0.4rem;
@@ -230,7 +286,7 @@ export default {
                 }
                 .cont{
                     position: absolute;
-                    left: 0.36rem;
+                    left: 0.46rem;
                     top: 0;
                     bottom: 0;
                     margin: auto;
