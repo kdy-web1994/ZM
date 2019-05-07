@@ -8,15 +8,15 @@
           <div class="icon"></div>
           <span>馆主个人信息</span>
         </div>
-        <div class="item">姓名：张嘉欣</div>
-        <div class="item">用户编号：890622</div>
-        <div class="item">联系号码：18919890622</div>
+        <div class="item">姓名：{{shop.user.name}}</div>
+        <div class="item">用户编号：{{shop.user.id}}</div>
+        <div class="item">联系号码：{{shop.user.mobile}}</div>
         <div class="topBox">
           <div class="left"></div>
           <div class="personalBox">
-            <div>所属决策：所属决策</div>
-            <div>所属中策：所属中策</div>
-            <div>所属系统发展委：系统发展委</div>
+            <div>所属决策：{{shop.user.departmentOne}}</div>
+            <div>所属中策：{{shop.user.departmenTwo}}</div>
+            <div>所属系统发展委：{{shop.user.departmenThree}}</div>
           </div>
         </div>
         <boxLine />
@@ -26,11 +26,11 @@
           <div class="icon"></div>
           <span>店铺基本信息</span>
         </div>
-        <div class="item">编号：89890622</div>
-        <div class="item">馆别：馆别1</div>
-        <div class="item">开业日期：2018-01-01</div>
-        <div class="item">新增时间：2017-12-06</div>
-        <div class="item">关闭日期：2018-06-22</div>
+        <div class="item">编号：{{shop.id}}</div>
+        <div class="item">馆别：{{shop.type}}</div>
+        <div class="item">开业日期：{{shop.dateopened}}</div>
+        <div class="item">新增时间：{{shop.addtime}}</div>
+        <div class="item">关闭日期：{{shop.closedDate}}</div>
          <boxLine />
       </div>
     </div>
@@ -40,8 +40,8 @@
           <div class="icon"></div>
           <span>区域负责人信息</span>
         </div>
-        <div class="item">姓名：王晓霞</div>
-        <div class="item">联系方式：13989890622</div>
+        <div class="item">姓名：{{shop.regionalHead.name}}</div>
+        <div class="item">联系方式：{{shop.regionalHead.phone}}</div>
          <boxLine />
       </div>
       <div class="bottom">
@@ -49,12 +49,12 @@
           <div class="icon"></div>
           <span>店铺业务办理情况</span>
         </div>
-        <div class="item">授权牌办理情况：办理情况</div>
-        <div class="item">合同期限：2018-01-01至2018-06-22</div>
-        <div class="item">是否有检测报告：是</div>
-        <div class="item">更变类型：更变类型</div>
-        <div class="item">更变日期：2017-12-06</div>
-         <div class="item">备注：备注备注备注备注备注备注</div>
+        <div class="item">授权牌办理情况：{{shop.authorizationcard==1?'已办理':shop.authorizationcard==2?'未办理':shop.authorizationcard==3?'办理中':shop.authorizationcard==4?'已取消':''}}</div>
+        <div class="item">合同期限：{{shop.contractperiod}}</div>
+        <div class="item">是否有检测报告：{{shop.istestreport==1?'有':shop.istestreport==2?'无':shop.istestreport==3?'办理中':shop.istestreport==4?'已过期':shop.istestreport==5?'其他':''}}</div>
+        <div class="item">更变类型：{{item.shop.changeType}}</div>
+        <div class="item">更变日期：{{item.shop.changeDate}}</div>
+         <div class="item">备注：{{item.shop.remarks}}</div>
          <boxLine />
       </div>
     </div>
@@ -86,14 +86,8 @@ export default {
         console.log(res)
         let q=res.q
         if(q.s==0){
-          for(let i=0;i<this.shop.length;i++) {
-            let item=this.List[i]
-            if(item.id==id){
-              item.shop=q.shop
-              item.showAll=!item.showAll
-              break
-            }
-          }
+          this.shop={...q.shop}
+
         }
       })
      }
