@@ -3,9 +3,28 @@
     <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6"/>
     <div class="bg"></div>
     <div class="content">
-      <resultItem v-for='item in List' :key='item.id' :isOpen="true" :item="item" :More="true" @map="map"/>
+      <resultItem v-for='item in List' :key='item.id' :id='item.id'  :item="item" :More="true" @map="map" />
      
     </div>
+
+     <Pop  
+      title="温馨提示" 
+      type="alert" 
+      contentText="亲爱的家人，您好！此区域的业务正在拓展中，敬请期待！"
+      alertText="查询其他区域"
+      @alert="err1cb"
+      
+      v-if="err1"
+      /> 
+      <Pop  
+      title="温馨提示" 
+      type="alert" 
+      contentText="亲爱的家人，十分抱歉！今天您查询的店铺数量已达到上限，请明天再尝试，感谢您的配合与谅解！"
+      alertText="我已知悉"
+      @alert="err3=false"
+      
+      v-if="err3"
+      /> 
   </div>
 </template>
   <script>
@@ -35,6 +54,8 @@ export default {
         ob: 2,
         ot: 2,
       },
+      err1:false,
+      err3:false,
       qsCode: null,
 		}
 	},
@@ -47,6 +68,11 @@ export default {
     this.getLastPageParams()
 	},
 	methods:{
+    err1cb(){
+     this.List=[]
+      this.action=1
+      this.getLocation(this.checkShop)
+    },
 	  map(arr){
     this.checkMap(arr)
     },
@@ -89,7 +115,14 @@ export default {
         console.log(res)
         let q=res.q
         this.qsCode=q.s
+        if(this.qsCode==8001){
+          this.err3=true
+          return
+        }
         if(q.s==0){
+          if(q.shops.length>0){
+
+          
           q.shops.forEach(item=>{ item.phone=item.phone.split('/') })
           if(a==0){
             this.postData0.pa+=1
@@ -103,6 +136,9 @@ export default {
           }
           q.shops.forEach(item => {  item['shop']={}; item['showAll']=false })
           this.List.push(...q.shops)
+          }else{
+            this.err1=true
+          }
         }
       }).finally(()=>{
         this.isload=false

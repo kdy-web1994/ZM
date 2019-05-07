@@ -12,24 +12,38 @@
       </div>
       <boxLine />
     </div>
-    <div v-for='phone in item.phone' :key='phone[1]' @click="phone(phone)" class="bottom item">
+    <div v-for='phone in item.phone' :key='phone[1]' @click="callPhone(phone)" class="bottom item">
       <div class="content">
         <div class="icon"></div>
         <span>{{phone}}</span>
       </div>
       <boxLine />
     </div>
-    <div class="more" v-if="!More">查看全部</div>
+    <div class="more" v-if="More" @click="go">查看全部</div>
   </div>
 </template>
   <script>
 export default {
-  props: ["item","More"],
+  props: ["item","More","id"],
+  created(){
+     
+  },
   methods: {
     map(arr){
       this.$emit("map",arr)
     },
-    phone(phone){
+    go(){
+      console.log(this.item)
+      this.$router.push({
+        path:'/service/detail',
+        query:{
+          id:this.id,
+          item:this.item
+        }
+      })
+    },
+    callPhone(phone){
+      console.log(phone)
       if(phone.indexOf('/')>=0)
         phone=phone.slice(0,phone.indexOf('/'))
 			window.location.href=`tel:${phone}`

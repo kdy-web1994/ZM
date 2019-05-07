@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <Header leftIcon="back" titleColor="#333" title="店铺查询" bg="#F6F6F6" />
-    <resultItem :isOpen="true" phone="020-89898989" address="广东省广州市荔湾区周门北路38号" :More="true"/>
+    <resultItem  :id="id"  :item="item" :More="false" @map="map"  />
     <div class="personal">
       <div class="top">
         <div class="title">
@@ -66,8 +66,37 @@ export default {
   components: {
     resultItem: () => import("./components/resultItem")
   },
+  data(){
+    return {
+      item:{},
+      id:""
+    }
+  },
+  created(){
+    this.id=this.$route.query.id
+    this.item={...this.$route.query.item}
+       this.getData(this.id)
+  },
   methods:{
-     
+    map(){
+
+    },
+     getData(id){
+       this.$Api.getShopDetails(0,id).then(res=>{
+        console.log(res)
+        let q=res.q
+        if(q.s==0){
+          for(let i=0;i<this.shop.length;i++) {
+            let item=this.List[i]
+            if(item.id==id){
+              item.shop=q.shop
+              item.showAll=!item.showAll
+              break
+            }
+          }
+        }
+      })
+     }
   }
 };
 </script>
