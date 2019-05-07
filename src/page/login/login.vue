@@ -41,6 +41,12 @@ export default {
     };
   },
   mounted() {},
+  beforeRouteLeave(to,from,next){
+    if(this.$loading){
+      this.$loading.clear()
+    }
+    next()
+  },
   methods: {
       openeyes(){//密码是否可见切换
         this.isActive = !this.isActive;
@@ -57,6 +63,7 @@ export default {
         return
       } 
           this.isLogin=true
+          this.$loading()
         if(this.isbtn!=false){
           let uid = 'CN'+this.names
           let password = md5(this.cipher)
@@ -66,6 +73,7 @@ export default {
               this.loadUserDetails() // 更新设备用户  // 更新用户信息
             }
           }).finally((c)=>{
+            this.$loading.clear()
              this.isLogin=false
           })
         }
