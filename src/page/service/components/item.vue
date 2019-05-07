@@ -36,11 +36,6 @@ export default {
   created(){
     // this.getRegionList()
   },
-  destroyed(){
-    if(this.$loading){
-      this.$loading.clear()
-    }
-  },
   methods:{
     show(){
       if(this.title==="所在地区"){
@@ -54,7 +49,10 @@ export default {
           })
           return
          }
-         this.isShowPopup2=true
+         this.$emit("showDetails")
+      }else if(this.title==="店铺状态"){
+        
+         this.$emit("showStatus")
       }
     },
       

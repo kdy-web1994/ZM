@@ -70,9 +70,7 @@ body{
 html,body,#app{
  height: 100%;
 }
-.van-hairline--top-bottom::after {
-    border-width: 0 0;
-}
+
 .van-badge{
   background-color: #fff;
   color: #333333;
@@ -100,6 +98,7 @@ html,body,#app{
 }
 
 .van-picker__toolbar{
+  background:rgba(238,238,238,1);
   .van-picker__confirm{
     color:#333;
   }
@@ -115,7 +114,9 @@ html,body,#app{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background:rgba(238,238,238,1);
+  
 }
+
+
 
 </style>
