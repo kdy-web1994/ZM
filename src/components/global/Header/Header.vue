@@ -55,7 +55,7 @@
     top: 0;
     left: 0;
    height: 0.88rem;
-   z-index: 10;
+   z-index: 11;
    background-size: 100% 100%;
   
    .left{

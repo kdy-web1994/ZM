@@ -4,7 +4,7 @@
     <div class="bg"></div>
     <div class="content">
       <div class="contentBox">
-        <Item icon="region" title="所在地区" :isRequire="true" placeholder="请选择省/市/区/镇" :value="regionIdText" type="select" @getArea="getArea"/>
+        <Item icon="region" title="所在地区" :isRequire="true" placeholder="请选择省/市/区/镇" :value="regionIdText" type="select" @showArea="getRegionList"/>
         <Item  icon="address" :value="streetIdText" :regionId="postData.regionId" title="详细地址" :isRequire="false" placeholder="请选择" type="select"/>
         <Item icon="shop" title="店铺状态" :isRequire="false" placeholder="请选择" type="select"/>
       </div>
@@ -30,6 +30,16 @@
       
       v-if="show"
       /> 
+      <van-popup v-model="isShowPopup1" position="bottom">
+        <mt-picker value-key='name' :slots="slots" @change="areaPickerChange" showToolbar>
+          <slot>
+            <div class='van-hairline--top-bottom van-picker__toolbar'>
+              <div @click='handleClick1(0)' class='van-picker__cancel'>取消</div>
+              <div @click='handleClick1(1)' class='van-picker__confirm'>完成</div>
+            </div>
+          </slot>
+        </mt-picker>
+      </van-popup>
   </div>
 </template>
   <script>
@@ -39,6 +49,36 @@ export default {
   },
   data(){
     return {
+      isShowPopup1:false,
+          isShowPopup2:false,
+          slots: [{
+        flex: 1,
+        values: [],
+        defaultIndex:0,
+        className: 'slot1',
+        textAlign: 'center'
+      }, {
+        divider: true,
+        content: '',
+        className: 'slot2'
+      }, {
+        flex: 1,
+        values: [],
+        defaultIndex:0,
+        className: 'slot3',
+        textAlign: 'center'
+      }, {
+        divider: true,
+        content: '',
+        className: 'slot4'
+      }, {
+        flex: 1,
+        values: [],
+        defaultIndex:0,
+        className: 'slot5',
+        textAlign: 'center'
+      }],
+      selectArea: [],
       regionIdText:"",
       streetIdText:"",
           name:"",
@@ -68,6 +108,68 @@ export default {
       }
   },
   methods:{
+    areaPickerChange(picker,values){
+      this.selectArea=values
+      this.renderArea(2,picker,values)
+    },
+    getRegionList(){
+        
+        let areaTime=localStorage.getItem('zm_areaTime')||0 ,
+          areaList=localStorage.getItem('zm_areaList')
+        if(areaList && areaTime && (new Date().getTime()-parseInt(areaTime))<1000*60*60*24/12) {
+          this.renderArea(1,null,JSON.parse(areaList))
+          return
+        }
+        this.$loading()
+        this.$Api.getRegionList(0,0).then(res=>{
+          // console.log(res)
+          let q=res.q
+          if(q.s==0){
+            console.log(JSON.stringify(res.q.items))
+            res.q.items[1].childs[0].name=' '+res.q.items[1].childs[0].name+' '
+            this.$loading.clear()
+            this.renderArea(1,null,res.q.items)
+            localStorage.setItem('zm_areaList',JSON.stringify(res.q.items))
+          }
+          localStorage.setItem('zm_areaTime',new Date().getTime())
+        })
+     
+    },
+    renderArea(status,picker,obj={}) {
+      if(status==1) {
+        // obj.unshift({name:'请选择省份',childs:[{name:'请选择城市',childs:[{name:'请选择地区'}]}]})
+        this.$set(this.slots[0],'values',obj)
+        this.$set(this.slots[2],'values',obj[0].childs)
+        this.$set(this.slots[4],'values',obj[0].childs[0].childs)
+        this.isShowPopup1=true
+      } 
+      if (status==2) {
+        picker.setSlotValues(1, obj[0].childs)
+        let town = []
+        if(obj[1])
+          town = obj[1].childs
+        picker.setSlotValues(2,town)
+        
+      }
+    },
+    handleClick1(status) {
+      if(status==1){
+        let temp=[]
+        let obj = this.selectArea
+        for(let i=0;i<obj.length;i++){
+          temp.push(obj[i].name)
+        }
+        console.log(temp)
+        this.getArea(obj,temp)
+        this.isShowPopup1=false
+        return
+        
+        this.checkDetailAreaOrLatelyShop()  // 查询详细地址 a=2
+        this.isShowPopup1=false
+      } else if(status==0) {
+        this.isShowPopup1=false
+      } 
+    },
     getArea(obj,temp){
         this.streetIdText=''  // 清空原详细地址文本
         this.postData.streetId=''  // 清空原详细地址参数
