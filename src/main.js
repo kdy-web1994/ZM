@@ -7,7 +7,7 @@ import store from './store/store'  //vuex
 import init from './components/index.js'
 init()
 
-import { Tab, Tabs, Badge, BadgeGroup, Row, Col, Loading,Popup,Picker,DatetimePicker} from 'vant';
+import { Tab, Tabs, Badge, BadgeGroup, Row, Col, Loading,Popup,Picker,DatetimePicker,Uploader} from 'vant';
 Vue.use(Tab).use(Tabs);
 Vue.use(Badge);
 Vue.use(BadgeGroup);
@@ -16,6 +16,7 @@ Vue.use(Loading);
 Vue.use(Popup)
 Vue.use(Picker)
 Vue.use(DatetimePicker)
+Vue.use(Uploader)
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {
       FastClick.attach(document.body);

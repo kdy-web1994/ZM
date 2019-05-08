@@ -4,15 +4,15 @@
           <div class="message">
             <div class="item">
                 <div class="person"></div>
-                <span>收件人：陈爽</span>
+                <span>收件人：{{invoiceList.addresses.name}}</span>
             </div>
             <div class="item">
                 <div class="phone"></div>
-                <span>联系电话：18919890622</span>
+                <span>联系电话：{{invoiceList.addresses.mobile}}</span>
             </div>
             <div class="item">
                 <div class="address"></div>
-                <span>收件地址：广州市荔湾区荔湾路89号骏丰大厦0622室</span>
+                <span>收件地址：{{invoiceList.addresses.address}}</span>
             </div>
           </div>
           <div class="mailBox" v-if='sys=="ERP"'>

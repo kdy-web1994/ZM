@@ -1,17 +1,17 @@
 <template>
   <div
     class="qrcodeResult"
-    :style="[{'padding-top':this.$route.query.type==1?'1.74rem':'2.88rem'}]"
+    :style="[{'padding-top':$route.query.type==1?'1.74rem':'2.88rem'}]"
   >
     <Header titleColor="#333" :title="title" bg="#fff"/>
     <div class="content">
-      <div :class="[this.$route.query.type==1?'icon':'icon1']"></div>
+      <div :class="[$route.query.type==1?'icon':'icon1']"></div>
     </div>
-    <p class="type" v-if="this.$route.query.type==1">签收完成</p>
-    <p class="text">此包裹已确认签收，感谢您的参与！</p>
-    <div class="btnBox" :style="[{'margin-top':this.$route.query.type==1?'1.6rem':'0.8rem'}]">
-      <div class="left">回到首页</div>
-      <div class="right">继续签收</div>
+    <p class="type" v-if="$route.query.type==1">签收完成</p>
+    <p class="text">{{text}}</p>
+    <div class="btnBox" :style="[{'margin-top':$route.query.type==1?'1.6rem':'0.8rem'}]">
+      <div class="left" @click="$router.push({path:'/home'})">回到首页</div>
+      <div class="right" @click="$router.go(-1)">继续签收</div>
     </div>
   </div>
 </template>
@@ -19,15 +19,23 @@
 export default {
   data() {
     return {
-      title: "签收问卷"
+      title: "签收问卷",
+      text:""
     };
   },
+  computed:{
+		pageQuery(){
+			return this.$route.query.text
+		}
+	},
   methods: {},
   created() {
     console.log(this.$route.query.type);
-    if (this.$route.query.type == 2) {
+    if (this.$route.query[1] == 2) {
       this.title = "扫描结果";
     }
+    this.text=this.pageQuery
+    console.log(this.text)
   }
 };
 </script>

@@ -6,10 +6,10 @@
     </div>
     <div class="content">
       <div class="contentBox">
-        <Item icon="orderNum" title="物流单号" :isRequire="false" placeholder="请输入" type="input"/>
+        <Item icon="orderNum" title="物流单号" v-model="num" :isRequire="false" placeholder="请输入" type="input"/>
        
       </div>
-      <div class="btn">查询</div>
+      <div class="btn" @click="checkLog">查询</div>
     </div>
     </div>
   </template>
@@ -17,6 +17,35 @@
   export default {
      components: {
     Item: () => import("./components/item")
+  },
+  data(){
+    return {
+      num:""
+    }
+  },
+  methods:{
+    // 查询物流单号是否合法  是否被签收过
+    checkLog() {
+
+      this.$Api.getExpressDetails(1, this.num).then(res => {
+        console.log(res);
+        let q = res.q;
+        if (q.s == 0)
+          this.$router.push({
+            path: "/service/qrcode",
+            query: {
+              num: trackingNumber,
+              isoneself: q.isOneself
+            }
+          });
+        else {
+          this.$router.push({ path: "/service/qrcodeResult", query: {
+            text:q.d,
+            type:2
+          } });
+        }
+      });
+    },
   }
   }
   </script>

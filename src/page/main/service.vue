@@ -158,7 +158,10 @@ localStorage.setItem('tip',1)
             }
           });
         else {
-          this.$router.push({ path: "/service/qrcodeResult", query: [q.d] });
+          this.$router.push({ path: "/service/qrcodeResult", query: {
+            text:q.d,
+            type:2
+          }});
         }
       });
     },
