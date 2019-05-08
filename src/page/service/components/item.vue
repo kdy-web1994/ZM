@@ -53,6 +53,14 @@ export default {
       }else if(this.title==="店铺状态"){
         
          this.$emit("showStatus")
+      }else if(this.title==="审核日期"){
+        this.$emit("showData")
+      }else if(this.title==="订单状态"){
+        this.$emit("showStatus")
+      }else if(this.title==="审核状态"){
+        this.$emit("showAuditStatus")
+      }else if(this.title==="订单属性"){
+        this.$emit("showType")
       }
     },
       

@@ -51,11 +51,15 @@ export default {
   data() {
     return {
       swList: [],
-      activeIndex: 0
+      activeIndex: 0,
+      pa:1,
+      List:[]
     };
   },
   created() {
     this.getSwiper();
+    this.loadAdList();
+    this.getList()
   },
   mounted() {},
   methods: {
@@ -64,6 +68,42 @@ export default {
         path: "/home/message"
       });
     },
+    getList(){
+       let table={
+        pa:  this.pa,
+        li: 10,
+        w: {
+          cid : 1,
+          sk : this.searchKey
+        }
+      }
+      
+      this.source = this.$axios.CancelToken.source()
+      console.log(this.source )
+      this.$Api.getArticleList(1, table,this.source.token)
+        .then(res => {
+          // console.log(res)
+          let q = res.q
+          if (q.s == 0) {
+            this.pa+=1
+            if (this.pa>=Math.ceil(q.total/10))
+              
+            q.articles = this.$base.pinImgPrefix(q.articles, "imagePath");
+            this.List.push(...q.articles)
+          }
+        }).finally(()=>{ })
+    },
+    loadAdList(){
+      this.$Api.getAdList(2).then(res=>{
+				// console.log(res)
+        let q=res.q
+        if(q.s==0){
+          q.ads = this.$base.pinImgPrefix(q.ads,'imagePath')
+					this.adList=q.ads
+					this.position=q.position
+        }
+      })
+		},
     tel() {
       window.location.href = `tel:${this.$config.user.mobile}`;
     },
