@@ -84,9 +84,7 @@ left: -.1rem;
                 align-items: center;
                 justify-content: center;
                 font-size: .26rem;
-                .text{
-                
-                }
+               
                 
             }
             .li:first-child{
