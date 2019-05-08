@@ -78,6 +78,10 @@ input {
 
 .conten{
     background-color: #f6f6f6;
+    background-image: url(/static/zmimg/my/my_bg_advice@2x.png);
+    background-size: 3.65rem 4.85rem;
+    background-repeat: no-repeat;
+    background-position: 50% 90%;
     position: relative;
     height: 100%;
     text-align: center;
@@ -88,9 +92,9 @@ input {
     }
 
     .feedbackbox{
-      padding: 0.4rem 0.3rem 0.5rem;
-      width: 6.3rem;
-      height: 5.18rem;
+      padding: 0.4rem 0.2rem 0.5rem;
+      width: 94%;
+      height: 6.18rem;
       margin: 0 auto;
       background-color: #fff;
       border-radius: 0.1rem;
@@ -113,6 +117,7 @@ input {
       color: #333333;
       overflow: hidden;
       position: relative;
+      
 
       .introduce{
         text-align: left;
@@ -144,11 +149,11 @@ input {
         }
       .ipt{
         padding-bottom: 0.1rem;
-          height: 0.61rem;
+        height: 0.61rem;
       }
       .passwords{
           width: 100%;
-          border-bottom: 0.01rem solid #e5e5e5;
+          border-bottom: 0.04rem solid #f8f8f8;
       }
       
     }
@@ -157,7 +162,7 @@ input {
     width: 2.6rem;
     height: 0.7rem;
     line-height: 0.7rem;
-    background-color: #ed6f00;
+    background-color: rgba($color: #ed6f00, $alpha: 0.9);
     color: #fff;
     border-radius: 0.35rem;
     margin: 0.8rem auto 0;

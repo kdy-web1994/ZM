@@ -4,7 +4,7 @@
           <div class="top">
               <span class="name">买买提.买买不提</span>
               <span class="news">
-                  <div class="reddot">99+</div>
+                  <div class="reddot">99<span class="add">+</span></div>
               </span>
               <span class="phone"></span>
           </div>
@@ -14,7 +14,7 @@
                   <div class="funcbox" @click='$router.push({name:"integral"})'>
                     <div class="iconbox integrals"></div>
                     <p>扫码积分</p>
-                    <span>99999</span>
+                    <span></span>
                   </div>
               </div>
               <div class="func">
@@ -87,7 +87,9 @@ export default {
     .myhead{
         padding: 0.6rem 0.5rem 0;
         height: 3.5rem;
-        background-color: #eb6b00;
+        background-image: url(/static/zmimg/my/my_bg@2x.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
         text-align: left;
 
         .top{
@@ -120,16 +122,24 @@ export default {
                 position: relative;
 
                 .reddot{
-                    width: 0.42rem;
-                    height: 0.42rem;
+                    width: 0.4rem;
+                    height: 0.4rem;
+                    padding-right: 0.08rem;
                     text-align: center;
+                    line-height: 0.4rem;
                     background-color: #fc2520;
                     color: #fff;
-                    font-size: 0.14rem;
+                    font-size: 0.12rem;
                     border-radius: 50%;
                     position: absolute;
                     right: -0.16rem;
                     top: -0.22rem;
+
+                    .add{
+                        position: absolute;
+                        top: -0.05rem;
+                        right: 0.04rem;
+                    }
                 }
                 
             }
@@ -145,12 +155,12 @@ export default {
         .serialnum{
             display: inline-block;
             height: 0.4rem;
-            line-height: 0.4rem;
+            line-height: 0.35rem;
             border-radius: 0.4rem;
             background-color: #ec8a08;
-            padding: 0 0.1rem;
+            padding: 0.05rem 0.2rem;
             color: #ffffff;
-            font-size: 0.16rem;
+            font-size: 0.2rem;
         }
         .bottom{
             display: box;              /* OLD - Android 4.4- */
@@ -165,7 +175,6 @@ export default {
                 width: 50%;
                 text-align: center;
                 .funcbox{
-                    width: 1.2rem;
                     margin: 0 auto;
 
                     .iconbox{
