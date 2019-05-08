@@ -140,7 +140,7 @@ export default {
         background: #ff2525;
         color: #fff;
         font-size: 0.32rem;
-        border-radius: 0.2rem;
+        border-radius: 0.3rem;
         transform: scale(0.5) translateY(-50%);
         position: absolute;
         right: -0.12rem;
@@ -257,7 +257,7 @@ export default {
           transform: scale(0.5);
           padding: 0.01rem 0.1rem;
           background: #ff2525;
-          border-radius: 0.25rem;
+          border-radius: 0.3rem;
           text-align: center;
           position: absolute;
           top: 0.06rem;

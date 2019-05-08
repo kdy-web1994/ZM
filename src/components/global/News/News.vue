@@ -33,12 +33,12 @@
          font-size: 0.32rem;
          color: #fff;
          transform: scale(0.5);
-         padding: 0.1rem 0.14rem ;
+         padding: 0rem 0.14rem ;
          top: -0.13rem;
          right: -0.2rem;
          z-index: 110;
          background: #FF2525;
-         border-radius:0.18rem;
+         border-radius:0.25rem;
        }
   }
   </style>

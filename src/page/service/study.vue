@@ -125,6 +125,7 @@ export default {
     flex-wrap: wrap;
     .item{
       width: 2.7rem;
+      margin-bottom: .84rem;
       .imgBox{
         width:2.7rem;
 height:3.55rem;
@@ -133,12 +134,14 @@ background: #fff;
 display: flex;
 align-items: center;
 justify-content: center;
+
            .img{
              width: 2.5rem;
              height: 3.35rem;
               background: url("../../../static/home_img_beauty_news_2.png") no-repeat;
     background-size: 100% 100%;
     border-radius:.1rem;
+    
            }
       }
     }
@@ -162,10 +165,12 @@ justify-content: center;
     .item {
       width: 3.34rem;
       margin-bottom: 0.7rem;
+     
       .imgBox {
         width: 100%;
         height: 1.88rem;
         background: red;
+         border-radius:.1rem; 
       }
       p {
         font-size: 0.22rem;

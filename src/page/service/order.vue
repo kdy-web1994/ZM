@@ -72,6 +72,9 @@
       }
     }
   },
+  created(){
+     this.showDate()
+  },
   methods:{
 
     showDate(){
@@ -225,7 +228,7 @@
         }
         .MadePickComfirm {
             font-size: 0.28rem;
-            color: #4BA8FF;
+            color: #333333;
             position: absolute;
             right: 0.24rem;
             line-height: 0.88rem;

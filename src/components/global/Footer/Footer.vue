@@ -138,6 +138,7 @@
         p{
           font-size: 0.2rem;
           margin: 0;
+          margin-top: 0.08rem;
           color: #999999;
         }
         .active{

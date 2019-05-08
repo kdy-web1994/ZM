@@ -157,7 +157,7 @@ export default {
 
     }
     .bottom {
-      margin-top: 0rem;
+      margin-top: .05rem;
       display: flex;
       align-items: center;
       justify-content: space-between;

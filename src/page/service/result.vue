@@ -266,7 +266,7 @@ export default {
     width: 100%;
     max-width: 700px;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 0;
