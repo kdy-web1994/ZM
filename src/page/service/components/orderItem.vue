@@ -1,14 +1,14 @@
 <template>
     <div class="orderItem" >
         <div class="total">合计数量：{{arr.length}}</div>
-        <div class="top">
+        <div class="top" v-if="arr.length&&arr.length>0">
               <div style="display: flex;">
                   <div class="item">商品名称</div>
                <div class="item">码数</div>
                 <div class="item">订购数量</div>
               </div>
         </div>
-        <div class="bottom">
+        <div class="bottom" v-if="arr.length&&arr.length>0">
             <div class="box"  v-for="(item,index) in arr" :key="index">
             <div class="item">
                  <div class="li">
@@ -39,6 +39,7 @@
   </script>
   <style lang="scss" scoped>
   .orderItem {
+     
       .total{
           line-height: .6rem;
           text-indent: .3rem;
@@ -60,6 +61,8 @@
     }
     .bottom{
         padding:  0 .3rem;
+         padding-bottom: .5rem;
+        background: #fff;
         .box{
             position: relative;
             .point{
