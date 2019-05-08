@@ -4,19 +4,19 @@
     <div class="pass">
       <div class="passbody">
         <div class="inputbox">
-          <p class="introduce"><i class="icons"></i> 用户编号</p>
+          <p class="introduce"><i class="icons serial"></i> 用户编号</p>
           <input class="ipt passwords" v-model="serialnum" @focus="iptfocus()" disabled type="text" placeholder="请输入">
         </div>
         <div class="inputbox">
-          <p class="introduce"><i class="icons"></i> 身份证号码</p>
+          <p class="introduce"><i class="icons card"></i> 身份证号码</p>
           <input class="ipt passwords" v-model="idcard" @focus="iptfocus()" type="text" placeholder="请输入">
         </div>
         <div class="inputbox">
-          <p class="introduce"><i class="icons"></i> 旧密码</p>
+          <p class="introduce"><i class="icons old"></i> 旧密码</p>
           <input class="ipt passwords" v-model="oldcipher" @focus="iptfocus()" type="password" placeholder="请输入">
         </div>
         <div class="inputbox">
-          <p class="introduce"><i class="icons"></i> 新密码</p>
+          <p class="introduce"><i class="icons new"></i> 新密码</p>
           <input class="ipt passwords" v-model="newcipher" @focus="iptfocus()" type="password" placeholder="请输入8位数字及字母">
         </div>
       </div>
@@ -152,12 +152,16 @@ input {
 }
 .conten{
     background-color: #f6f6f6;
+    background-image: url(/static/zmimg/my/my_bg_lock@2x.png);
+    background-size: 5.56rem 4.1rem;
+    background-repeat: no-repeat;
+    background-position: 50% 95%;
     position: relative;
     height: 100%;
     text-align: center;
     font-size: 0.3rem;
-   padding-top: 0.88rem;
-   box-sizing: border-box;
+    padding-top: 0.88rem;
+    box-sizing: border-box;
     h3,p{
         margin: 0;
     }
@@ -174,10 +178,10 @@ input {
 
         .inputbox{
           padding: 0.35rem 0.3rem 0;
-          height: 1.3rem;
+          height: 1.45rem;
           color: #333333;
-          overflow: hidden;
           position: relative;
+         
 
           .introduce{
             text-align: left;
@@ -185,35 +189,48 @@ input {
             height: 0.5rem;
             line-height: 0.5rem;
             position: relative;
+            
 
             .icons{
               display: inline-block;
-              width: 0.32rem;
-              height: 0.32rem;
+              width: 0.38rem;
+              height: 0.38rem;
               border-radius: 50%;
-              background-color: #ffecdb;
               position: absolute;
               left: 0;
               top: 0;
               bottom: 0;
               margin: auto;
             }
+            .serial{
+              background-image: url(/static/zmimg/service/service_icon_number_orange@2x.png);
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
+            .card{
+              background-image: url(/static/zmimg/my/my_icon_id@2x.png);
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
+            .old{
+              background-image: url(/static/zmimg/my/my_icon_old_password@2x.png);
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
+            .new{
+              background-image: url(/static/zmimg/my/my_icon_new_password@2x.png);
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
           }
 
-          .textlab{
-              width: 18%;
-              display: inline-block;
-              height: 0.64rem;
-              line-height: 0.62rem;
-              border-bottom: 0.01rem solid #e5e5e5;
-            }
           .ipt{
             padding-bottom: 0.1rem;
-              height: 0.61rem;
+            height: 0.71rem;
           }
           .passwords{
               width: 100%;
-              border-bottom: 0.01rem solid #e5e5e5;
+              border-bottom: 0.04rem solid #f8f8f8;
           }
           
         }
@@ -238,7 +255,7 @@ input {
         height: 0.7rem;
         line-height: 0.7rem;
         border-radius: 0.7rem;
-        background-color: #ed6d00;
+        background-color: rgba($color: #ed6d00, $alpha: 0.9);
         color: #fff;
         margin: 0.3rem auto 0;
       }

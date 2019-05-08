@@ -85,8 +85,8 @@ export default {
 
     .integralbox{
       padding: 0.3rem;
-      width: 6.3rem;
-      height: 1.76rem;
+      width: 93%;
+      height: 2.37rem;
       background-color: #fff;
       border-radius: 0.1rem;
       margin: 0 auto 0.3rem;
