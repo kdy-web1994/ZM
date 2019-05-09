@@ -21,8 +21,8 @@
       <div class="text">常用功能</div>
     </div>
     <div class="content">
-      <div v-for="(item,i) in itemArr" class="item" :key="i" :style="[{'background':item.bg}]">
-        <div class="box" @click="go(item.router)">
+      <div v-for="(item,i) in itemArr"  class="item" :key="i" :style="[{'background':item.bg}]" v-show='power.indexOf(i+1)>=0 || power.indexOf((i+1)+"")>=0'>
+        <div class="box" @click="go(item.router)" >
           <div :class="['icon',item.icon]"></div>
           <p>{{item.title}}</p>
         </div>
@@ -72,6 +72,8 @@ export default {
       swList: [],
       show: false,
       tip:false,
+      power: JSON.parse(localStorage.getItem('zm_power')) || [],
+      user: JSON.parse(localStorage.getItem('zm_user')) || {},
       itemArr: [
         {
           bg: "rgba(255,249,249,1)",

@@ -6,11 +6,17 @@
   <script>
   export default {
     name: 'News',
+    created(){
+     this.getData()
+    },
     methods:{
       go(){
         this.$router.push({
           path: '/home/message'
         })
+      },
+      getData(){
+
       }
     }
   }
