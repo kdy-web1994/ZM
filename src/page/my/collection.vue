@@ -1,21 +1,14 @@
 <template>
   <div class="conten">
     <Header leftIcon="back" titleColor="#333" title="我的收藏" bg="#F6F6F6"/>
-    <div class="collectionbox">
+    <div class="collectionbox" v-for='item in List' :key='item.id'>
       <div class="collectioncon">
-        <div class="collectionimg"></div>
-        <div class="collectionmatter">
-          <div class="cont">2018美体内衣上海发布会成功举行</div>
-          <div class="time">2018-12-17</div>
+        <div class="collectionimg">
+          <img :src="item.imagePath" alt="">
         </div>
-      </div>
-    </div>
-    <div class="collectionbox">
-      <div class="collectioncon">
-        <div class="collectionimg"></div>
         <div class="collectionmatter">
-          <div class="cont">为什么选择我们品牌的内衣？</div>
-          <div class="time">2018-12-11</div>
+          <div class="cont">{{item.title}}</div>
+          <div class="time">{{item.time}}</div>
         </div>
       </div>
     </div>
@@ -26,12 +19,44 @@
 export default {
   data() {
     return {
-      
+      List: [],
+      postData: {
+        pa: 0,
+        li: 10,
+        ob: 2,
+        ot: 2,
+      },
+      isload: false,
+      isend: false,
     };
   },
-  mounted() {},
+  mounted() {
+    this.loadList();
+  },
   methods: {
-      
+      loadList() {
+        let table ={
+          pa: this.postData.pa+1,
+          li: this.postData.li,
+          ob: this.postData.ob,
+          ot: this.postData.ot,
+          w: {
+            userId: JSON.parse(localStorage.getItem('zm_user')).id
+          }
+        }
+        this.isload=true
+        this.$Api.getArticleList(2,table).then(res => {
+          console.log(res)
+          let q = res.q
+          if (q.s == 0) {
+            this.postData.pa+=1
+            if (this.postData.pa>=Math.ceil(q.total/this.postData.li))
+              this.isend=true
+            q.articles = this.$base.pinImgPrefix(q.articles, "imagePath")
+            this.List.push(...q.articles)
+          }
+        }).finally(()=>{ this.isload=false })
+      }
   }
 };
 </script>
@@ -64,7 +89,10 @@ export default {
         .collectionimg{
           width: 2.84rem;
           height: 1.6rem;
-          background-color: #ff0;
+          img{
+            width: 100%;
+            height: 100%;
+          }
         }
         .collectionmatter{
           padding-left: 0.2rem;

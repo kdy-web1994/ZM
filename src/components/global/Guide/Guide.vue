@@ -1,36 +1,36 @@
 <template>
-  <div id="Guide">
-    <div class="guide_a">
+  <div id="Guide" v-if="guide==0">
+    <div class="guide_a" >
 
-      <div class="close"></div>
+      <div class="close"  @click="know()"></div>
 
-      <div>
+      <div v-if="show==1">
         <div class="back_t">CN</div>
         <div class="line_a"></div>
         <div class="hint_a"></div>
       </div>
 
-      <!-- <div>
+      <div v-if="show==2">
         <div class="id_card">身份证号码</div>
         <div class="line_b"></div>
         <div class="hint_b"></div>
-      </div> -->
+      </div>
 
-      <!-- <div>
+      <div v-if="show==3">
         <div class="name">姓名</div>
         <div class="line_c"></div>
         <div class="hint_c"></div>
-      </div> -->
+      </div>
 
-      <!-- <div>
+      <div v-if="show==4">
         <div class="cipher">设置8位数字及字母</div>
         <div class="line_d"></div>
         <div class="hint_d"></div>
-      </div> -->
+      </div>
       
-      <div class="next"></div>
+      <div v-if="show!=4" class="next" @click="next()"></div>
 
-      <!-- <div class="know"></div> -->
+      <div v-if="show==4" class="know" @click="know()"></div>
     </div>
   </div>
 </template>
@@ -40,14 +40,26 @@ export default {
   name: 'Guide',
   data() {
     return {
-      
+      show:1,
+      guide:0
     };
+  },
+  created(){
+    if(localStorage.getItem('guide')!=null){
+      this.guide = localStorage.getItem('guide')
+    }
   },
   mounted() {
     
   },
   methods: {
-      
+      next(){
+        this.show +=1;
+      },
+      know(){
+        localStorage.setItem('guide',1);
+        this.guide = 1;
+      }
   }
 };
 </script>
@@ -69,7 +81,7 @@ export default {
       background-repeat: no-repeat;
       position: absolute;
       right: 0.5rem;
-      top: 0.03rem;
+      top: 0.4rem;
     }
 
     .back_t{

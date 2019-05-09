@@ -28,7 +28,7 @@
       我已阅读并同意
       <span class="agreement" @click="$router.push({name:'useragreement'})">《用户协议》</span>
     </div>
-    <!-- <Guide />  -->
+    <Guide /> 
   </div>
 </template>
 
@@ -47,6 +47,7 @@ export default {
       idcard: '',//身份证
       cipher: '',//密码
       role: 2, //默认是会员
+      
     };
   },
   mounted() {

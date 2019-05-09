@@ -2,13 +2,13 @@
   <div class="conten">
       <div class="myhead">
           <div class="top">
-              <span class="name">买买提.买买不提</span>
+              <span class="name">{{user.nickName}}</span>
               <span class="news">
                   <div class="reddot">99<span class="add">+</span></div>
               </span>
               <span class="phone"></span>
           </div>
-          <div class="serialnum">用户编号：<span>CN0000000</span></div>
+          <div class="serialnum">用户编号：<span>{{user.id}}</span></div>
           <div class="bottom">
               <div class="func">
                   <div class="funcbox" @click='$router.push({name:"integral"})'>
@@ -52,7 +52,7 @@
 
           </div>
           <div class="item">
-              <span class="exit">退出登录</span>
+              <span class="exit" @click="outLoginSubmit()">退出登录</span>
           </div>
       </div>
       <News />
@@ -60,15 +60,39 @@
 </template>
 
 <script>
+import { Dialog } from 'vant'
 export default {
   data() {
     return {
-      
+      power: JSON.parse(localStorage.getItem('zm_power')) || [],
+      user: JSON.parse(localStorage.getItem('zm_user')) || {},
     };
   },
-  mounted() {},
-  methods: {
+  created(){
+
+  },
+  mounted() {
       
+  },
+  methods: {
+     
+    outLoginSubmit(){ // 退出登录
+      Dialog.confirm({
+        title: '消息',
+        message: '确认退出登录?'
+      }).then(() => {
+        this.$Api.UserLogout().then(res=>{
+          let q=res.q
+          if(q.s==0){
+            localStorage.removeItem('zm_user')
+            this.user={}
+            this.$router.push({name:'login'})
+          } else {
+            this.$set(this.user,'integral','')
+          }
+        })
+      }).catch(() => { })
+    },
   }
 };
 </script>
@@ -155,12 +179,12 @@ export default {
         .serialnum{
             display: inline-block;
             height: 0.4rem;
-            line-height: 0.35rem;
+            line-height: 0.3rem;
             border-radius: 0.4rem;
             background-color: #ec8a08;
             padding: 0.05rem 0.2rem;
             color: #ffffff;
-            font-size: 0.2rem;
+            font-size: 0.22rem;
         }
         .bottom{
             display: box;              /* OLD - Android 4.4- */
