@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
+import md5 from "blueimp-md5";
 export default {
   data() {
     return {
@@ -39,9 +41,12 @@ export default {
       newcipher: '',
       mistake:false,
       tips:'',
+      user: JSON.parse(localStorage.getItem('zm_user')) || {},
     };
   },
-  mounted() {},
+  mounted() {
+    this.serialnum = this.user.id;
+  },
   methods: {
       iptfocus(){
         this.mistake = false;
@@ -67,11 +72,28 @@ export default {
           this.tips = '新密码不能为空';
           return;
         }
-        if(this.newcipher==this.newcipher){
+        if(this.oldcipher==this.newcipher){
           this.mistake = true;
           this.tips = '新密码不能与旧密码相同';
           return;
         }
+
+        let user = {
+          id: this.serialnum,
+          oldPassword: md5(this.oldcipher),
+          password: md5(this.newcipher),
+          idCard:this.idcard
+        }
+        this.$Api.getUserPasswordUpdate(2,user).then(res=>{
+          console.log(res)
+          let q=res.q
+          if(q.s==0){
+            Toast.success({message:'修改密码成功',duration:4000})
+            setTimeout(() => {
+              this.$router.go(-1)
+            }, 1200)
+          }
+        })
       },
       IdCodeValid(code){
         var city={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江 ",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北 ",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏 ",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外 "};
